@@ -3,6 +3,7 @@
     import Section from '#lib/components/Section.svelte';
     import Tag from '#lib/components/Tag.svelte';
     import PaperEntry from '#lib/components/PaperEntry.svelte';
+    import Carousel from '#lib/components/Carousel.svelte';
     import { capitalize } from '#lib/format.ts';
 
     let { data } = $props();
@@ -38,16 +39,16 @@
     <ul class="recent">
         {#each data.highlights as event (event.id)}
             <li>
-                <a class="picture" href="/events#{event.id}" tabindex="-1" aria-hidden="true">
-                    {#if event.image}
-                        <img src={event.image.src.replace(/^\/?/, '/')} alt="" loading="lazy" decoding="async" />
+                <div class="picture">
+                    {#if event.pictures.length > 0}
+                        <Carousel photos={event.pictures} label={event.title} />
                     {:else}
-                        <span class="placeholder">
+                        <a class="placeholder" href="/events#{event.id}" tabindex="-1" aria-hidden="true">
                             <span class="month">{event.when.split(' ')[0]}</span>
                             <span class="year">{event.date.slice(0, 4)}</span>
-                        </span>
+                        </a>
                     {/if}
-                </a>
+                </div>
                 <div class="text">
                     <p class="label">
                         <time datetime={event.date}>{event.when}</time>{#if event.upcoming}&nbsp;· Upcoming{/if}
@@ -56,7 +57,6 @@
                     <p class="where">
                         {#if event.role}{capitalize(event.role) + ' · '}{/if}{event.event}{#if event.location}, {event.location}{/if}
                     </p>
-                    {#if event.image}<p class="visually-hidden">Photo: {event.image.alt}</p>{/if}
                 </div>
             </li>
         {/each}
@@ -122,20 +122,9 @@
         background-color: var(--annotation-color);
     }
 
-    .picture img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 150ms ease-out;
-    }
-
-    .recent li:hover .picture img {
-        transform: scale(1.03);
-    }
-
     /* For events without a photo: the month and year, set like a calendar page. */
     .placeholder {
+        text-decoration: none;
         display: flex;
         flex-direction: column;
         align-items: center;

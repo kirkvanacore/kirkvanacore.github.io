@@ -91,7 +91,8 @@ export interface SiteEvent {
     event: string;
     location?: string;
     photos: Photo[];
-    image?: Photo;
+    /** Pictures for the home page slideshow: `image` (if any), then the photos. */
+    pictures: Photo[];
     links: [string, string][];
 }
 

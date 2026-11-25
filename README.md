@@ -52,8 +52,9 @@ Other optional fields: `type` (e.g. `half-day workshop`), `description`, `modera
   ```
 - **Feature it on the home page:** add `highlight: true`. "Recent & upcoming events" lists every
   highlighted event, newest first, or the four newest events if none are highlighted. Each shows
-  the entry's first photo, or the picture in `image: {src: …, alt: …}` if you add one. Events
-  without a picture get a plain tile with the date.
+  a slideshow of the entry's photos (arrows, or swipe on a phone). `image: {src: …, alt: …}` adds a
+  picture shown first, on the home page only. Events without a picture get a plain tile with the
+  month and year.
 - **Hide an entry** without deleting it: add `publish: false`.
 - **Flag a detail to check:** add `verify: "what to check"`. It doesn't show on the site.
 

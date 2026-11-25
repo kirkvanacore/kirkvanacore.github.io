@@ -93,7 +93,9 @@ export const events: SiteEvent[] = records
             event: record.event,
             location: record.location,
             photos: record.photos ?? [],
-            image: record.image ?? record.photos?.[0],
+            pictures: record.image
+                ? [record.image, ...(record.photos ?? []).filter((p) => p.src !== record.image?.src)]
+                : (record.photos ?? []),
             links: linkList(record.links),
         };
     })

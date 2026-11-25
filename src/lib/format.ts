@@ -35,6 +35,7 @@ const linkNames: Record<string, string> = {
     scholar: 'Google Scholar',
     announcement: 'Announcement',
     program: 'Program',
+    summit: 'Summit website',
     conference: 'Conference',
     training_sessions: 'Training sessions (PDF)',
     recap: 'Recap',
