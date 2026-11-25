@@ -17,7 +17,7 @@
 
     const nav: [string, string][] = [
         ['/', 'Home'],
-        ['/research', 'Research'],
+        ['/projects', 'Projects'],
         ['/publications', 'Publications'],
         ['/events', 'Events'],
         ['/cv', 'CV'],

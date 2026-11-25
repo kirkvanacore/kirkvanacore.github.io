@@ -16,9 +16,9 @@
     );
 </script>
 
-<Title text="Research" description={nto.blurb} />
+<Title text="Projects" description={nto.blurb} />
 
-<h1>Research</h1>
+<h1>Projects</h1>
 
 <Section id="nto" header={nto.name}>
     <p class="label role">{nto.role}</p>
@@ -26,27 +26,15 @@
     <LinkRow links={orgLinks} about={nto.name} />
 </Section>
 
-<Section id="projects" header="Projects">
-    {#each data.nto.projects as project (project.name)}
-        <article class="project" id={slug(project.name)}>
-            <h3><a href={project.url}>{project.name}</a></h3>
-            <p>{project.blurb}</p>
-            <LinkRow links={linkList(project.links)} about={project.name} />
-        </article>
-    {/each}
-</Section>
+{#each data.nto.projects as project (project.name)}
+    <Section id={slug(project.name)} header={project.name}>
+        <p>{project.blurb}</p>
+        <LinkRow links={[[`Visit ${project.name}`, project.url], ...linkList(project.links)]} about={project.name} />
+    </Section>
+{/each}
 
 <style>
     .role {
         margin-top: -0.5em;
-    }
-
-    .project {
-        margin-bottom: 2em;
-    }
-
-    .project h3 {
-        margin: 0 0 0.35em 0;
-        font-size: 1.25rem;
     }
 </style>

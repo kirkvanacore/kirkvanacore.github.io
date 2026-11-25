@@ -13,7 +13,7 @@ to update the site.
 | `content/profile.yaml` | Name, titles, email, bio, areas of interest, education, profile links, CV link |
 | `content/featured.yaml` | The four selected papers (home page and Publications) |
 | `content/events.yaml` | The Events timeline and "Recent & upcoming" on the home page |
-| `content/nto.yaml` | The Research page (NTO, Sandpiper, MTM) |
+| `content/nto.yaml` | The Projects page (NTO, Sandpiper, MTM) |
 | `content/service.yaml` | The Service list on the Events page |
 
 You can edit these on github.com (open the file, click the pencil icon, then **Commit changes**),

@@ -2,7 +2,7 @@ import { siteUrl } from '#lib/config.ts';
 
 export const prerender = true;
 
-const pages = ['/', '/research', '/publications', '/events', '/cv', '/contact'];
+const pages = ['/', '/projects', '/publications', '/events', '/cv', '/contact'];
 
 export function GET() {
     const urls = pages.map((path) => `  <url><loc>${siteUrl}${path}</loc></url>`).join('\n');
