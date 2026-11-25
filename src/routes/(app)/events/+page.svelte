@@ -2,11 +2,12 @@
     import Title from '#lib/components/Title.svelte';
     import Section from '#lib/components/Section.svelte';
     import Timeline from '#lib/components/Timeline.svelte';
+    import { describe } from '#lib/seo.ts';
 
     let { data } = $props();
 </script>
 
-<Title text="Events" />
+<Title text="Events" description={describe.events(data.profile)} />
 
 <h1>Events</h1>
 

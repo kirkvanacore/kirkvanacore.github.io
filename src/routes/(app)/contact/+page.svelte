@@ -3,13 +3,14 @@
     import Section from '#lib/components/Section.svelte';
     import SocialLinks from '#lib/components/SocialLinks.svelte';
     import Icon from '#lib/components/Icon.svelte';
+    import { describe } from '#lib/seo.ts';
 
     let { data } = $props();
 
     const profile = $derived(data.profile);
 </script>
 
-<Title text="Contact" />
+<Title text="Contact" description={describe.contact(data.profile)} />
 
 <h1>Contact</h1>
 

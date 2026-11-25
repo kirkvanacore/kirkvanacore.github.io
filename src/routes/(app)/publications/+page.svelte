@@ -3,11 +3,12 @@
     import Section from '#lib/components/Section.svelte';
     import PaperEntry from '#lib/components/PaperEntry.svelte';
     import Icon from '#lib/components/Icon.svelte';
+    import { describe } from '#lib/seo.ts';
 
     let { data } = $props();
 </script>
 
-<Title text="Publications" />
+<Title text="Publications" description={describe.publications(data.profile, data.featured)} />
 
 <h1>Publications</h1>
 

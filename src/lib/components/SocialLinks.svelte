@@ -31,7 +31,12 @@
 <ul class="social" class:compact aria-label="Profiles and contact">
     {#each items as [icon, label, href] (icon)}
         <li>
-            <a {href} title={compact ? label : undefined} aria-label={compact ? label : undefined}>
+            <a
+                {href}
+                rel={icon === 'nto' ? undefined : 'me'}
+                title={compact ? label : undefined}
+                aria-label={compact ? label : undefined}
+            >
                 <Icon name={icon} />{#if !compact}<span>{label}</span>{/if}
             </a>
         </li>

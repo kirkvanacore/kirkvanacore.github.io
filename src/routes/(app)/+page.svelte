@@ -5,11 +5,16 @@
     import PaperEntry from '#lib/components/PaperEntry.svelte';
     import Carousel from '#lib/components/Carousel.svelte';
     import { capitalize } from '#lib/format.ts';
+    import { personJsonLd } from '#lib/seo.ts';
 
     let { data } = $props();
 </script>
 
 <Title text="" />
+
+<svelte:head>
+    {@html `<script type="application/ld+json">${personJsonLd(data.profile, data.nto)}</script>`}
+</svelte:head>
 
 <div class="bio">
     {#each data.profile.long_bio as paragraph, i (i)}

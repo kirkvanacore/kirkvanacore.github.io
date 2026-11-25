@@ -3,6 +3,7 @@
     import Section from '#lib/components/Section.svelte';
     import Icon from '#lib/components/Icon.svelte';
     import type { Person } from '#lib/types.ts';
+    import { describe } from '#lib/seo.ts';
 
     let { data } = $props();
 
@@ -14,7 +15,7 @@
     const pdfURL = $derived(docID ? `https://docs.google.com/document/d/${docID}/export?format=pdf` : undefined);
 </script>
 
-<Title text="CV" />
+<Title text="CV" description={describe.cv(data.profile)} />
 
 <h1>CV</h1>
 
