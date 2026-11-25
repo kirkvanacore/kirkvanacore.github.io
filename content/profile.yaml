@@ -1,0 +1,59 @@
+# Site owner profile. Bio text is Kirk's own (long bio) — use verbatim, do not rewrite.
+name: Kirk Vanacore
+credentials: Ph.D.
+titles:
+  - Assistant Research Professor, Information Science, Cornell University
+  - Research Director, National Tutoring Observatory
+location: Ithaca, NY
+email: kpv27@cornell.edu
+headshot: assets/headshot.jpg
+# Public CV: a Google Doc shared as "Anyone with the link: Viewer". The CV page shows
+# View and Download PDF buttons for it. Leave it commented out to hide those buttons.
+# cv_url: https://docs.google.com/document/d/YOUR-DOC-ID/edit
+
+areas_of_interest:
+  - Learning Sciences
+  - AI and Education
+  - Educational Data Science
+  - Causal Inference
+
+short_bio: >-
+  Kirk Vanacore is an Assistant Research Professor in the Bowers College of
+  Computing and Information Science at Cornell University. His research blends
+  statistics, machine learning, and artificial intelligence to uncover causal
+  learning mechanisms in environments that combine human and AI instruction.
+
+# Use on the About/Home page.
+long_bio:
+  - >-
+    Kirk Vanacore is the Research Director of the National Tutoring
+    Observatory. He integrates statistics, machine learning, and artificial
+    intelligence to uncover causal learning mechanisms in environments that
+    combine human and AI instruction. He earned his Ph.D. in Learning Sciences
+    & Technologies from Worcester Polytechnic Institute. He was a postdoctoral
+    fellow at the Penn Center for Learning Analytics at the University of
+    Pennsylvania, where he mentored graduate students and conducted research in
+    Learning Analytics and Educational Data Mining.
+  - >-
+    Kirk’s work primarily uses experimental and quasi-experimental
+    methods—such as regression discontinuity and propensity score matching—to
+    examine how interactions within educational platforms shape learning
+    behaviors and outcomes. His recent projects incorporate behavior detection
+    model outputs into principal stratification frameworks to explore how
+    specific student behaviors moderate learning effects. He also investigates
+    the impact of gamification, generative AI feedback, and tutoring
+    interventions on student persistence and self-regulated learning.
+
+education:
+  - {degree: "Ph.D., Learning Sciences & Technologies", school: "Worcester Polytechnic Institute", year: 2024}
+  - {degree: "M.A., Child Study & Human Development", school: "Tufts University", year: 2018}
+  - {degree: "B.A., History", school: "Gordon College", year: 2010}
+
+links:
+  google_scholar: https://scholar.google.com/citations?user=eTCfIVkAAAAJ&hl=en
+  semantic_scholar: https://www.semanticscholar.org/author/2006195295
+  linkedin: https://www.linkedin.com/in/kirkvanacore/
+  github: https://github.com/kirkvanacore
+  nto: https://nationaltutoringobservatory.org
+  nto_team: https://nationaltutoringobservatory.org/team.html
+  # orcid: TODO — no public ORCID found; add if Kirk has one

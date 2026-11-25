@@ -1,0 +1,328 @@
+/*
+ * Design tokens and base styles. Adapted from Amy J. Ko's faculty site
+ * (https://github.com/amyjko/faculty, CC0), with new palettes and type.
+ *
+ * Three themes share one set of tokens; <html data-theme> picks one (see
+ * src/lib/config.ts). Each has a light and a dark palette, chosen to keep body
+ * text at 7:1 contrast or better and links at 4.5:1 or better.
+ */
+
+:root {
+    --text-font-size: 1.125rem;
+    --small-font-size: 0.95rem;
+    --extra-small-font-size: 0.85rem;
+    --annotation-size: 0.8rem;
+    --text-line-height: 1.65;
+    --header-line-height: 1.25;
+    --header-size: 2rem;
+
+    --roundedness: 0.25em;
+    --padding: 0.25em;
+    --margin: 1em;
+    --measure: 40em;
+}
+
+/* Quiet academic: a classic serif throughout, generous whitespace, navy. */
+:root[data-theme='academic'] {
+    --text-font-family: 'Source Serif 4 Variable', 'Source Serif Pro', Georgia, serif;
+    --header-font: 'Source Serif 4 Variable', 'Source Serif Pro', Georgia, serif;
+    --label-font: var(--text-font-family);
+    --text-weight: 400;
+    --bold-weight: 600;
+    --header-weight: 600;
+    --header-tracking: -0.005em;
+    --label-transform: none;
+    --label-tracking: 0.02em;
+    --label-variant: all-small-caps;
+
+    --text-color: #1b1f27;
+    --muted-color: #4b5361;
+    --back-color: #fdfcfa;
+    --surface-color: #f4f3ef;
+    --border-color: #e3e1dc;
+    --link-color: #1d3f72;
+    --link-hover-color: #0f2a52;
+    --accent-color: #1d3f72;
+    --annotation-color: #e9eef6;
+    --annotation-text-color: #1d3f72;
+    --focus-color: #2c62b4;
+}
+
+/* Warm editorial: serif display headings, off-white paper, muted red. */
+:root[data-theme='editorial'] {
+    --text-font-family: 'Source Serif 4 Variable', Georgia, serif;
+    --header-font: 'Fraunces Variable', Georgia, serif;
+    --label-font: var(--text-font-family);
+    --text-weight: 400;
+    --bold-weight: 600;
+    --header-weight: 600;
+    --header-tracking: -0.01em;
+    --label-transform: uppercase;
+    --label-tracking: 0.08em;
+    --label-variant: normal;
+
+    --text-color: #231d18;
+    --muted-color: #5a5048;
+    --back-color: #faf6ef;
+    --surface-color: #f2ebe0;
+    --border-color: #e4d9ca;
+    --link-color: #962b25;
+    --link-hover-color: #6f1d19;
+    --accent-color: #962b25;
+    --annotation-color: #f4e4dc;
+    --annotation-text-color: #7a231e;
+    --focus-color: #c0392b;
+}
+
+/* Cool modern: a clean sans-serif, white, slate and deep teal. */
+:root[data-theme='modern'] {
+    --text-font-family: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --header-font: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --label-font: var(--text-font-family);
+    --text-font-size: 1.0625rem;
+    --text-weight: 400;
+    --bold-weight: 600;
+    --header-weight: 700;
+    --header-tracking: -0.02em;
+    --label-transform: uppercase;
+    --label-tracking: 0.06em;
+    --label-variant: normal;
+
+    --text-color: #0f172a;
+    --muted-color: #475569;
+    --back-color: #ffffff;
+    --surface-color: #f5f7fa;
+    --border-color: #e2e8f0;
+    --link-color: #0d6e66;
+    --link-hover-color: #08514b;
+    --accent-color: #0d6e66;
+    --annotation-color: #e3f3f0;
+    --annotation-text-color: #0b5c55;
+    --focus-color: #0d9488;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root[data-theme='academic'] {
+        --text-color: #e9e7e2;
+        --muted-color: #a9afba;
+        --back-color: #12151b;
+        --surface-color: #1a1e26;
+        --border-color: #2b3039;
+        --link-color: #a8c2ee;
+        --link-hover-color: #cddcf7;
+        --accent-color: #a8c2ee;
+        --annotation-color: #1e2a3d;
+        --annotation-text-color: #c3d5f4;
+        --focus-color: #7aa3e6;
+    }
+
+    :root[data-theme='editorial'] {
+        --text-color: #efe7dc;
+        --muted-color: #b6aa9c;
+        --back-color: #1a1613;
+        --surface-color: #231e1a;
+        --border-color: #3a322b;
+        --link-color: #f1a79d;
+        --link-hover-color: #f7cbc4;
+        --accent-color: #f1a79d;
+        --annotation-color: #3a2420;
+        --annotation-text-color: #f5c3bb;
+        --focus-color: #f08a7c;
+    }
+
+    :root[data-theme='modern'] {
+        --text-color: #e2e8f0;
+        --muted-color: #94a3b8;
+        --back-color: #0b1120;
+        --surface-color: #111a2e;
+        --border-color: #1f2a40;
+        --link-color: #5fd8c8;
+        --link-hover-color: #99e9de;
+        --accent-color: #5fd8c8;
+        --annotation-color: #0f2f2d;
+        --annotation-text-color: #8fe6da;
+        --focus-color: #2dd4bf;
+    }
+
+    /* Softens photos against a dark background without making them murky. */
+    img {
+        filter: brightness(0.92);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    color: var(--text-color);
+    background-color: var(--back-color);
+    font-family: var(--text-font-family);
+    font-weight: var(--text-weight);
+    font-size: var(--text-font-size);
+    line-height: var(--text-line-height);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+b,
+strong {
+    font-weight: var(--bold-weight);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--header-font);
+    font-weight: var(--header-weight);
+    line-height: var(--header-line-height);
+    letter-spacing: var(--header-tracking);
+    margin-top: calc(2 * var(--margin));
+    margin-bottom: var(--margin);
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--header-size);
+    margin-top: 0;
+}
+
+h2 {
+    font-size: calc(var(--header-size) * 0.75);
+}
+
+h3 {
+    font-size: calc(var(--header-size) * 0.6);
+}
+
+h4 {
+    font-size: calc(var(--header-size) * 0.5);
+}
+
+h3,
+h4 {
+    text-wrap: pretty;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: var(--margin);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: color-mix(in srgb, var(--link-color) 35%, transparent);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration-color: currentColor;
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+hr {
+    margin-top: calc(1.5 * var(--margin));
+    margin-bottom: calc(1.5 * var(--margin));
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+}
+
+ul {
+    padding-inline-start: 1.25em;
+}
+
+/* Small labels: dates, venues, section kickers. */
+.label {
+    font-family: var(--label-font);
+    font-size: var(--extra-small-font-size);
+    font-variant-caps: var(--label-variant);
+    text-transform: var(--label-transform);
+    letter-spacing: var(--label-tracking);
+    color: var(--muted-color);
+}
+
+.muted {
+    color: var(--muted-color);
+}
+
+.small {
+    font-size: var(--small-font-size);
+}
+
+/* Hidden visually, still read by screen readers. */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* A button-like link, for primary actions such as "Full list on Google Scholar". */
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.45em 0.9em;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--roundedness);
+    color: var(--back-color);
+    background-color: var(--accent-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--bold-weight);
+    text-decoration: none;
+    line-height: 1.3;
+}
+
+.button:hover {
+    color: var(--back-color);
+    background-color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
+    text-decoration: none;
+}
+
+.button.secondary {
+    color: var(--accent-color);
+    background-color: transparent;
+}
+
+.button.secondary:hover {
+    color: var(--link-hover-color);
+    background-color: var(--annotation-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

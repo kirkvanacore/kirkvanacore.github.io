@@ -1,0 +1,38 @@
+{
+    "name": "kirkvanacore-site",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Personal academic website of Kirk Vanacore, Ph.D.",
+    "license": "CC0-1.0",
+    "repository": "https://github.com/kirkvanacore/kirkvanacore.github.io",
+    "engines": {
+        "node": ">=22.17"
+    },
+    "type": "module",
+    "imports": {
+        "#lib/*": "./src/lib/*"
+    },
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "content": "node scripts/content-report.js"
+    },
+    "devDependencies": {
+        "@fontsource-variable/fraunces": "^5",
+        "@fontsource-variable/inter": "^5",
+        "@fontsource-variable/source-serif-4": "^5",
+        "@sveltejs/adapter-static": "^4",
+        "@sveltejs/kit": "^3",
+        "@sveltejs/vite-plugin-svelte": "^7",
+        "@types/node": "^24.19.4",
+        "prettier": "^3",
+        "prettier-plugin-svelte": "^4",
+        "svelte": "^5",
+        "svelte-check": "^4",
+        "typescript": "^6",
+        "vite": "^8",
+        "yaml": "^2"
+    }
+}

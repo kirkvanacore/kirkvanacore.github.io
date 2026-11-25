@@ -1,0 +1,116 @@
+/**
+ * Reads the YAML files in /content when the site is built. Pages never see the
+ * raw files: unpublished events and internal notes (`verify`, `note_for_site`)
+ * are dropped here, so they don't end up in the built site.
+ */
+import { parse } from 'yaml';
+import type {
+    EventRecord,
+    NTO,
+    Paper,
+    Profile,
+    ServiceRole,
+    SiteEvent,
+    TimelineItem,
+} from '#lib/types.ts';
+import { formatWhen, linkList, slug, today } from '#lib/format.ts';
+
+const files = import.meta.glob('/content/*.yaml', {
+    query: '?raw',
+    import: 'default',
+    eager: true,
+}) as Record<string, string>;
+
+function load<T>(name: string): T {
+    const text = files[`/content/${name}.yaml`];
+    if (text === undefined) throw new Error(`Missing content/${name}.yaml`);
+    try {
+        return parse(text) as T;
+    } catch (error) {
+        throw new Error(`content/${name}.yaml isn't valid YAML: ${error}`);
+    }
+}
+
+/** Fails the build with a readable message, rather than rendering a broken page. */
+function require(condition: unknown, message: string): asserts condition {
+    if (!condition) throw new Error(`Content problem: ${message}`);
+}
+
+const isoDate = /^\d{4}-\d{2}-\d{2}$/;
+
+export const profile = load<Profile>('profile');
+require(profile?.name, 'profile.yaml needs a name');
+require(Array.isArray(profile.long_bio), 'profile.yaml long_bio should be a list of paragraphs');
+
+export const featured = load<Paper[]>('featured');
+require(Array.isArray(featured), 'featured.yaml should be a list of papers');
+featured.forEach((paper, i) =>
+    require(paper.title && paper.authors && paper.venue, `featured.yaml paper #${i + 1} needs a title, authors and venue`),
+);
+
+export const nto = load<NTO>('nto');
+export const service = load<ServiceRole[]>('service') ?? [];
+
+const records = load<EventRecord[]>('events') ?? [];
+records.forEach((record, i) => {
+    const where = `events.yaml entry #${i + 1} ("${record?.title ?? 'untitled'}")`;
+    require(record?.title, `${where} needs a title`);
+    require(record.event, `${where} needs an event`);
+    require(isoDate.test(String(record.date)), `${where} needs a date written like 2026-11-09`);
+    if (record.end_date) require(isoDate.test(String(record.end_date)), `${where} has an end_date that isn't written like 2026-11-13`);
+});
+
+const now = today();
+const usedIDs = new Set<string>();
+
+/** Published events, newest first. */
+export const events: SiteEvent[] = records
+    .filter((record) => record.publish !== false)
+    .map((record): SiteEvent => {
+        const date = String(record.date);
+        const end_date = record.end_date ? String(record.end_date) : undefined;
+        let id = slug(`${date.slice(0, 7)}-${record.title.split(/\s+/).slice(0, 6).join(' ')}`);
+        while (usedIDs.has(id)) id += '-x';
+        usedIDs.add(id);
+        return {
+            id,
+            date,
+            end_date,
+            when: record.date_display ?? formatWhen(date, end_date),
+            upcoming: (end_date ?? date) >= now,
+            group: record.group,
+            role: record.role,
+            title: record.title,
+            type: record.type,
+            description: record.description,
+            with: record.with,
+            moderator: record.moderator,
+            speakers: record.speakers,
+            time: record.time,
+            event: record.event,
+            location: record.location,
+            photos: record.photos ?? [],
+            links: linkList(record.links),
+        };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+/** Lays out events as a timeline, gathering events that share a group under one heading. */
+export function timeline(list: SiteEvent[]): TimelineItem[] {
+    const items: TimelineItem[] = [];
+    const placed = new Set<string>();
+    for (const event of list) {
+        if (!event.group) {
+            items.push({ kind: 'event', event });
+        } else if (!placed.has(event.group)) {
+            placed.add(event.group);
+            items.push({
+                kind: 'group',
+                id: slug(event.group),
+                heading: event.group,
+                events: list.filter((e) => e.group === event.group),
+            });
+        }
+    }
+    return items;
+}

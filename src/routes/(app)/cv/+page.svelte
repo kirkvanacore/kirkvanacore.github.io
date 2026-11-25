@@ -1,0 +1,86 @@
+<script lang="ts">
+    import Title from '#lib/components/Title.svelte';
+    import Section from '#lib/components/Section.svelte';
+    import Icon from '#lib/components/Icon.svelte';
+
+    let { data } = $props();
+
+    const profile = $derived(data.profile);
+
+    /** A Google Doc's ID, from a link like https://docs.google.com/document/d/<id>/edit. */
+    const docID = $derived(profile.cv_url?.match(/\/document\/d\/([\w-]+)/)?.[1]);
+    const viewURL = $derived(docID ? `https://docs.google.com/document/d/${docID}/view` : profile.cv_url);
+    const pdfURL = $derived(docID ? `https://docs.google.com/document/d/${docID}/export?format=pdf` : undefined);
+</script>
+
+<Title text="CV" />
+
+<h1>CV</h1>
+
+{#if viewURL}
+    <p>My CV is kept up to date as a Google Doc.</p>
+    <p class="actions">
+        <a class="button" href={viewURL}><Icon name="cv" /> View CV</a>
+        {#if pdfURL}<a class="button secondary" href={pdfURL}><Icon name="download" /> Download PDF</a>{/if}
+    </p>
+{:else}
+    <p>
+        For a copy of my CV, email <a href="mailto:{profile.email}">{profile.email}</a>.
+    </p>
+{/if}
+
+<Section id="education" header="Education">
+    <ul class="education">
+        {#each profile.education as degree (degree.degree)}
+            <li>
+                <span class="label">{degree.year}</span>
+                <span><strong>{degree.degree}</strong>, {degree.school}</span>
+            </li>
+        {/each}
+    </ul>
+</Section>
+
+<Section id="positions" header="Current positions">
+    <ul class="positions">
+        {#each profile.titles as title (title)}
+            <li>{title}</li>
+        {/each}
+    </ul>
+    {#if profile.links.google_scholar}
+        <p class="small">
+            For publications, see the <a href="/publications">selected publications</a> or the
+            <a href={profile.links.google_scholar}>full list on Google Scholar</a>.
+        </p>
+    {/if}
+</Section>
+
+<style>
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75em;
+    }
+
+    .education {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .education li {
+        display: grid;
+        grid-template-columns: 4em 1fr;
+        gap: 0.75em;
+        padding: 0.45em 0;
+        border-bottom: 1px solid var(--border-color);
+        line-height: 1.45;
+    }
+
+    .education .label {
+        padding-top: 0.15em;
+    }
+
+    .positions {
+        margin: 0 0 1em 0;
+    }
+</style>

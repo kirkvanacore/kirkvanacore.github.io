@@ -1,0 +1,63 @@
+# Four selected publications shown on the home page and at the top of /publications.
+# The full list is NOT hosted on the site — link to Google Scholar instead (profile.yaml > links.google_scholar).
+# Summaries are paraphrased from each paper's abstract.
+
+- title: "A Causal Framework for Estimating Heterogeneous Effects of On-Demand Tutoring"
+  authors: "Vanacore, K., Thomas, D. R., Smith, D., Groot, B., Reich, J., & Kizilcec, R. F."
+  year: 2026
+  venue: "Proceedings of the 19th International Conference on Educational Data Mining (EDM 2026), 6–17"
+  doi: https://doi.org/10.5281/zenodo.21039738
+  links:
+    preprint: https://arxiv.org/abs/2602.19296
+    scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=eTCfIVkAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=eTCfIVkAAAAJ:O3NaXMp0MMsC
+  themes: [causal-inference, tutoring]
+  summary: >-
+    A scalable framework that combines Deep Knowledge Tracing with causal
+    forests to estimate the session-level effects of on-demand human tutoring.
+    Across 5,000+ middle-school math sessions, requesting a tutor raised
+    next-problem correctness by about 4 percentage points, with wide variation
+    across sessions and students.
+
+- title: "From Tutor Moves to Tutoring States: Modeling the Timing and Sequencing of Pedagogical Strategies for Student Engagement"
+  authors: "Vanacore, K., Lee, J., Ahtisham, B., Shaw, S., Reich, J., & Kizilcec, R. F."
+  year: 2026
+  venue: "Proceedings of the Thirteenth ACM Conference on Learning @ Scale (L@S 2026), 339–349"
+  doi: https://doi.org/10.1145/3774398.3811604
+  links:
+    paper: https://dl.acm.org/doi/abs/10.1145/3774398.3811604
+  themes: [tutoring-discourse, ai-annotation]
+  summary: >-
+    Combines LLM-assisted annotation with Hidden Markov Models to identify
+    three recurring tutoring states (inquiry elicitation, direct instruction,
+    and affective support), and shows that how tutors sequence these
+    strategies relates to student talk and to students returning for more
+    sessions.
+
+- title: "How Well Do Large Language Models Recognize Instructional Moves? Establishing Baselines for Foundation Models in Educational Discourse"
+  authors: "Vanacore, K., & Kizilcec, R. F."
+  year: 2026
+  venue: "Proceedings of the Thirteenth ACM Conference on Learning @ Scale (L@S 2026), 330–338"
+  doi: https://doi.org/10.1145/3774398.3811605
+  links:
+    preprint: https://arxiv.org/abs/2512.19903
+    scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=eTCfIVkAAAAJ&sortby=pubdate&citation_for_view=eTCfIVkAAAAJ:NMxIlDl6LWMC
+  themes: [ai-evaluation, tutoring-discourse]
+  summary: >-
+    Benchmarks six state-of-the-art LLMs on classifying instructional moves in
+    expert-coded K-12 math classroom transcripts. Models show meaningful but
+    limited ability out of the box and struggle most with moves that require
+    inferring the teacher's intent.
+
+- title: "The Effect of Assistance on Gamers: Assessing the Impact of On-Demand Hints & Feedback Availability on Learning for Students Who Game the System"
+  authors: "Vanacore, K.*, Gurung, A.*, Sales, A. C., & Heffernan, N. T."
+  author_note: "* equal contribution"
+  year: 2024
+  venue: "Proceedings of the 14th Learning Analytics and Knowledge Conference (LAK 2024), 462–472"
+  doi: https://doi.org/10.1145/3636555.3636904
+  links:
+    scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=eTCfIVkAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=eTCfIVkAAAAJ:UebtZRa9Y70C
+  themes: [causal-inference, student-behavior]
+  summary: >-
+    A randomized controlled trial analyzed with fully latent principal
+    stratification, finding that students prone to gaming the system may
+    benefit from delayed rather than immediate hints and feedback.

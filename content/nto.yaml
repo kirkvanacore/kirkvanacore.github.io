@@ -1,0 +1,33 @@
+# National Tutoring Observatory section. Only these public items — do not add internal
+# pipeline names, grant details, or partner names beyond what is listed here.
+
+nto:
+  name: National Tutoring Observatory
+  role: Research Director
+  url: https://nationaltutoringobservatory.org
+  github: https://github.com/National-Tutoring-Observatory
+  blurb: >-
+    The National Tutoring Observatory (NTO) is a research collaboration led by
+    Cornell with MIT and Carnegie Mellon that builds shared infrastructure
+    (open data, AI annotation tools, and benchmarks) for studying what makes
+    tutoring effective.
+
+projects:
+  - name: Sandpiper
+    url: https://sandpiperresearch.org
+    blurb: >-
+      An open-source, mixed-initiative platform for orchestrated AI annotation
+      of educational discourse at scale, co-developed by the NTO and
+      FreshCognate.
+    links:
+      paper: https://arxiv.org/abs/2603.08406
+      news: https://news.cornell.edu/stories/2026/04/decoding-great-teaching-and-more-new-app-analyzes-conversational-data-scale
+
+  - name: Million Tutor Moves (MTM)
+    url: https://huggingface.co/datasets/NationalTutoringObservatory/mtm-000-sample
+    blurb: >-
+      An open multimodal dataset for the science of tutoring. A preview sample
+      showing the data structure is available on Hugging Face; public releases
+      begin in December 2026.
+    links:
+      huggingface_org: https://huggingface.co/NationalTutoringObservatory

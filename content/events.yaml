@@ -1,0 +1,164 @@
+# Panels, workshops, talks and convenings. Newest first.
+# Render as a timeline; group entries that share `group` under one heading.
+# publish: false  -> keep in the file but do NOT render (Kirk to confirm first).
+# verify: "..."   -> render, but Kirk should check the noted detail before launch.
+# role values: organizer | lead organizer | co-organizer | panelist | instructor | presenter | invited participant
+
+- date: 2027-03-22
+  end_date: 2027-03-24
+  status: upcoming
+  role: Co-PI and organizer
+  title: "HUMAN AI Collaboration, Creativity and Critical Thinking: A Thought Summit on the Transformation of Education in the Age of Artificial Intelligence"
+  event: Cornell Thought Summits (Cornell AI Initiative)
+  location: Cornell University, Ithaca, NY
+  links:
+    announcement: https://news.cornell.edu/node/333935
+    program: https://thoughtsummits.cornell.edu/
+
+- date: 2026-12-01
+  status: upcoming
+  publish: false
+  verify: "Exact dates, session titles and acceptance status not confirmed."
+  role: presenter and panelist
+  title: "NTO research infrastructure session; panel on the \"5% problem\" with Susanna Loeb, Third Space Learning and Khan Academy"
+  event: AIMS convening
+  location: Houston, TX
+
+- date: 2026-11-09
+  end_date: 2026-11-13
+  role: instructor
+  title: "National Tutoring Observatory interactive tutorial (Sandpiper annotation, multimodal demo, MTM data)"
+  with: [Doug Pietrzak]
+  event: Eighth International Conference on Quantitative Ethnography (ICQE26)
+  location: Hiroshima, Japan
+  verify: "Exact tutorial day and official title."
+  links:
+    conference: https://www.qesoc.org/icqe26/
+
+- date: 2026-10-05
+  role: lead organizer
+  title: "How Should We Benchmark AI Tutors? Toward Valid and Impact-Oriented Evaluation"
+  type: half-day training session
+  with: [René Kizilcec, Clayton Cohn, Josh Marland, Zhuqian Zhou]
+  speakers: "Ai2, ETH Zürich, Eedi, Khan Academy, Google DeepMind"
+  event: NCME AIME-Con 2026
+  location: Wyndham Grand Pittsburgh Downtown, Pittsburgh, PA
+  verify: "Session day (training sessions ran Oct 5; conference Oct 5–7)."
+  links:
+    conference: https://ncme.org/event/2026-aime-con/
+    training_sessions: https://ncme.org/wp-content/uploads/2026/07/2026-Selected-Training-Sessions.pdf
+
+- date: 2026-09-23
+  role: instructor
+  title: "AI-Powered Workflows for Understanding and Evaluating Instructional Discourse"
+  type: four-hour workshop (NTO and Stanford SCALE Initiative)
+  with: [Julian Bernado]
+  event: SREE 2026 Conference
+  location: Baltimore, MD
+  verify: "Workshop day (conference ran Sept 23–26)."
+  links:
+    conference: https://sree.memberclicks.net/2026-conference
+
+- date: 2026-08-25
+  date_display: "Aug 2026"
+  role: invited participant
+  title: "OpenAI Learning Lab: inaugural in-person research convening"
+  description: >-
+    One of 30+ researchers convened at OpenAI to set a shared research agenda
+    for AI and learning. The recap names Cornell's National Tutoring
+    Observatory among the Learning Lab's collaborators.
+  event: OpenAI Learning Lab
+  location: OpenAI, San Francisco, CA
+  note_for_site: "Kirk appears in a photo in the recap. Link to it; do not copy or hotlink OpenAI's images."
+  links:
+    recap: https://edunewsletter.openai.com/p/learning-lab-launch
+    linkedin_post: https://www.linkedin.com/feed/update/urn:li:activity:7501014902585741313/
+
+- date: 2026-06-30
+  group: "Festival of Learning 2026 (AIED · EDM · L@S), Seoul"
+  role: panelist
+  title: "Creating Infrastructure that Strengthens the Quality and Impact of Educational Research"
+  moderator: "Jeremy Roschelle (Digital Promise)"
+  with: ["Hiroaki Ogata (Kyoto University)", "Tanja Käser (EPFL)", "Roberto Martinez-Maldonado (Monash University)"]
+  time: "3:45–5:00 PM"
+  event: Festival of Learning 2026
+  location: COEX, Seoul, South Korea
+  links:
+    panel: https://festival-of-learning-2026.info/panels/
+
+- date: 2026-06-28
+  group: "Festival of Learning 2026 (AIED · EDM · L@S), Seoul"
+  role: lead organizer
+  title: "Advancing the Science of Human and AI Tutoring Through Shared Infrastructure: A Collaborative Workshop"
+  type: full-day workshop
+  description: >-
+    Led by the National Tutoring Observatory, the Stanford SCALE Initiative and
+    the LEVI HAT project, with sessions on open-source data, infrastructure
+    benchmarks and synthetic students.
+  event: Festival of Learning 2026
+  location: COEX 305, Seoul, South Korea
+  photos:
+    - {src: assets/events/2026-06-fol-workshop-session.jpg, alt: "Workshop participants working together at laptops"}
+    - {src: assets/events/2026-06-fol-workshop-group.jpg, alt: "Workshop organizers and participants, group photo in Seoul"}
+  links:
+    workshop: https://sites.google.com/view/fol26-wksp-science-of-tutoring/home
+    paper: https://doi.org/10.1007/978-3-032-29794-5_18
+
+- date: 2026-05-05
+  end_date: 2026-05-06
+  role: instructor
+  title: "From Insight to Action: Closing the Loop on Tutoring Data"
+  type: workshop with live Sandpiper demo
+  with: [Justin Reich, Rachel Slama]
+  event: National Student Support Accelerator (NSSA) Conference 2026
+  location: Stanford University, Stanford, CA
+  links:
+    slides: https://nssa.stanford.edu/sites/default/files/Workshop%20Learning%20from%20Tutoring%20Dialogue.pdf
+
+- date: 2026-04-27
+  role: lead organizer
+  title: "National Tutoring Observatory’s Interactive Workshop on AI Annotation and Teacher Analytics"
+  type: full-day workshop
+  event: LAK26, 16th International Learning Analytics & Knowledge Conference
+  location: Bergen, Norway
+  links:
+    workshop: https://sites.google.com/cornell.edu/lak26-nto-workshop/home
+
+- date: 2025-09-10
+  role: panelist
+  title: "Inaugural International Workshop on Rethinking Children’s Automatic Speech Recognition (ASR) for Education"
+  type: invitation-only workshop
+  event: University at Buffalo Institute for Artificial Intelligence and Data Science; National AI Institute for Exceptional Education
+  location: Lockwood Hall, University at Buffalo, Buffalo, NY
+  photos:
+    - {src: assets/events/2025-09-ub-childrens-asr-panel.jpg, alt: "Kirk Vanacore speaking on a panel at the children's ASR workshop, University at Buffalo"}
+  links:
+    workshop: https://www.buffalo.edu/ai4exceptionaled/news-events/ASR-Workshop.html
+
+- date: 2025-07-21
+  publish: false
+  verify: "Kirk is not listed among the workshop paper's authors. Confirm his role (presenter? panelist?) before publishing."
+  title: "Advancing the Science of Teaching with Tutoring Data: A Collaborative Workshop with the National Tutoring Observatory"
+  event: L@S 2025
+  location: University of Palermo, Palermo, Italy
+  links:
+    workshop: https://sites.google.com/andrew.cmu.edu/nto
+    paper: https://hdl.handle.net/1721.1/162578
+
+- date: 2024-07-14
+  group: "CausalEDM workshop series (Educational Data Mining)"
+  role: co-organizer
+  title: "Causal Inference in Educational Data Mining (CausalEDM), 4th edition"
+  with: ["Anthony F. Botelho", "Avery H. Closser", "Adam C. Sales", "Neil T. Heffernan"]
+  event: 17th International Conference on Educational Data Mining (EDM 2024)
+  location: Atlanta, GA
+  links:
+    paper: https://www.educationaldatamining.org/edm2024/proceedings/2024.EDM-tutorials.134/
+
+- date: 2022-07-01
+  date_display: "Jul 2022"
+  group: "CausalEDM workshop series (Educational Data Mining)"
+  role: presenter
+  title: "Evaluating Performance-Based Rewards Using Cut Points in an Educational Game: A Case for Regression Discontinuity"
+  event: "CausalEDM workshop, EDM 2022 (chair: Adam Sales)"
+  location: Durham, England
