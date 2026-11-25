@@ -57,6 +57,8 @@ records.forEach((record, i) => {
     require(record?.title, `${where} needs a title`);
     require(record.event, `${where} needs an event`);
     require(isoDate.test(String(record.date)), `${where} needs a date written like 2026-11-09`);
+    if (record.image) require(record.image.src && record.image.alt, `${where} has an image without both src and alt`);
+    for (const photo of record.photos ?? []) require(photo?.src && photo?.alt, `${where} has a photo without both src and alt`);
     if (record.end_date) require(isoDate.test(String(record.end_date)), `${where} has an end_date that isn't written like 2026-11-13`);
 });
 
@@ -91,6 +93,7 @@ export const events: SiteEvent[] = records
             event: record.event,
             location: record.location,
             photos: record.photos ?? [],
+            image: record.image ?? record.photos?.[0],
             links: linkList(record.links),
         };
     })

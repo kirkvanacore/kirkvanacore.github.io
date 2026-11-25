@@ -38,13 +38,26 @@
     <ul class="recent">
         {#each data.highlights as event (event.id)}
             <li>
-                <p class="label">
-                    <time datetime={event.date}>{event.when}</time>{#if event.upcoming}&nbsp;· Upcoming{/if}
-                </p>
-                <p class="title"><a href="/events#{event.id}">{event.title}</a></p>
-                <p class="where">
-                    {#if event.role}{capitalize(event.role) + ' · '}{/if}{event.event}{#if event.location}, {event.location}{/if}
-                </p>
+                <a class="picture" href="/events#{event.id}" tabindex="-1" aria-hidden="true">
+                    {#if event.image}
+                        <img src={event.image.src.replace(/^\/?/, '/')} alt="" loading="lazy" decoding="async" />
+                    {:else}
+                        <span class="placeholder">
+                            <span class="month">{event.when.split(' ')[0]}</span>
+                            <span class="year">{event.date.slice(0, 4)}</span>
+                        </span>
+                    {/if}
+                </a>
+                <div class="text">
+                    <p class="label">
+                        <time datetime={event.date}>{event.when}</time>{#if event.upcoming}&nbsp;· Upcoming{/if}
+                    </p>
+                    <p class="title"><a href="/events#{event.id}">{event.title}</a></p>
+                    <p class="where">
+                        {#if event.role}{capitalize(event.role) + ' · '}{/if}{event.event}{#if event.location}, {event.location}{/if}
+                    </p>
+                    {#if event.image}<p class="visually-hidden">Photo: {event.image.alt}</p>{/if}
+                </div>
             </li>
         {/each}
     </ul>
@@ -88,12 +101,78 @@
     }
 
     .recent li {
-        padding: 0.8em 0;
+        display: grid;
+        grid-template-columns: 11em 1fr;
+        gap: 1.1em;
+        align-items: start;
+        padding: 1em 0;
         border-bottom: 1px solid var(--border-color);
     }
 
     .recent li:first-child {
         padding-top: 0;
+    }
+
+    .picture {
+        display: block;
+        text-decoration: none;
+        border-radius: var(--roundedness);
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        background-color: var(--annotation-color);
+    }
+
+    .picture img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 150ms ease-out;
+    }
+
+    .recent li:hover .picture img {
+        transform: scale(1.03);
+    }
+
+    /* For events without a photo: the month and year, set like a calendar page. */
+    .placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: var(--annotation-text-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--roundedness);
+    }
+
+    .placeholder .month {
+        font-family: var(--header-font);
+        font-weight: var(--header-weight);
+        font-size: 1.9rem;
+        line-height: 1;
+    }
+
+    .placeholder .year {
+        font-family: var(--label-font);
+        font-size: var(--small-font-size);
+        letter-spacing: 0.08em;
+        margin-top: 0.3em;
+    }
+
+    @media only screen and (max-width: 520px) {
+        .recent li {
+            grid-template-columns: 6.5em 1fr;
+            gap: 0.85em;
+        }
+
+        .placeholder .month {
+            font-size: 1.35rem;
+        }
+
+        .placeholder .year {
+            font-size: var(--annotation-size);
+        }
     }
 
     .recent p {

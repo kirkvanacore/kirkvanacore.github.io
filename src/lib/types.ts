@@ -66,6 +66,8 @@ export interface EventRecord {
     event: string;
     location?: string;
     photos?: Photo[];
+    /** The picture for the home page highlight; defaults to the first photo. */
+    image?: Photo;
     links?: Links;
 }
 
@@ -89,6 +91,7 @@ export interface SiteEvent {
     event: string;
     location?: string;
     photos: Photo[];
+    image?: Photo;
     links: [string, string][];
 }
 
