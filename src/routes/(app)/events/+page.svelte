@@ -21,7 +21,10 @@
 
 {#if data.past.length > 0}
     <Section id="past" header="Past">
-        <Timeline items={data.past} />
+        {#each data.past as year (year.id)}
+            <h3 class="year-heading" id={year.id}>{year.heading}</h3>
+            <Timeline items={year.items} level={4} />
+        {/each}
     </Section>
 {/if}
 
@@ -44,6 +47,23 @@
 <style>
     .intro {
         margin-top: -0.25em;
+    }
+
+    /* A year under "Past", with a rule running to the right edge. */
+    .year-heading {
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+        margin: 1.25em 0 1em 0;
+        font-size: 1.3rem;
+        font-variant-numeric: lining-nums;
+        scroll-margin-top: 1em;
+    }
+
+    .year-heading::after {
+        content: '';
+        flex: 1;
+        border-top: 1px solid var(--border-color);
     }
 
     .service {

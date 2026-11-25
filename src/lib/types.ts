@@ -68,6 +68,10 @@ export interface EventRecord {
     /** Also list it under "Recent & upcoming events" on the home page. */
     highlight?: boolean;
     role?: string;
+    /** What sort of event it is, shown as a tag (see `eventKinds` in content.ts). */
+    kind?: string;
+    /** National Tutoring Observatory work; adds an "NTO" marker. */
+    nto?: boolean;
     title: string;
     type?: string;
     description?: string;
@@ -92,7 +96,9 @@ export interface SiteEvent {
     upcoming: boolean;
     highlight: boolean;
     group?: string;
-    role?: string;
+    role: string;
+    kind: string;
+    nto: boolean;
     title: string;
     type?: string;
     description?: string;
@@ -112,6 +118,13 @@ export interface SiteEvent {
 export type TimelineItem =
     | { kind: 'event'; event: SiteEvent }
     | { kind: 'group'; id: string; heading: string; events: SiteEvent[] };
+
+/** Past timeline items under one year heading ("2026", or "2024 and earlier"). */
+export interface TimelineYear {
+    id: string;
+    heading: string;
+    items: TimelineItem[];
+}
 
 export interface NTO {
     nto: {
@@ -147,6 +160,6 @@ export interface SiteData {
     service: ServiceRole[];
     highlights: SiteEvent[];
     upcoming: TimelineItem[];
-    past: TimelineItem[];
+    past: TimelineYear[];
     built: string;
 }

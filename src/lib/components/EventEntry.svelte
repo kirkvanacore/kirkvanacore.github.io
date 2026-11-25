@@ -6,8 +6,8 @@
 
     interface Props {
         event: SiteEvent;
-        /** Heading level: 3 on its own, 4 inside a group. */
-        level?: 3 | 4;
+        /** Heading level: one below the heading it sits under (a section, year or group). */
+        level?: 3 | 4 | 5;
     }
 
     let { event, level = 3 }: Props = $props();
@@ -27,11 +27,24 @@
 </script>
 
 <article class="event" id={event.id}>
-    {#if event.role}<Tag label={capitalize(event.role)} />{/if}
-    <svelte:element this={`h${level}`} class="title">{event.title}</svelte:element>
+    <!-- The tags come after the title in reading order, so a screen reader that jumps
+         to the heading hears them next; CSS shows them above it. -->
+    <div class="head">
+        <svelte:element this={`h${level}`} class="title">{event.title}</svelte:element>
+        <p class="tags">
+            <Tag label={capitalize(event.kind)} />{#if event.nto}<Tag
+                    label="NTO"
+                    expansion="National Tutoring Observatory"
+                    quiet
+                />{/if}
+        </p>
+    </div>
+    <p class="role">
+        <strong>{capitalize(event.role)}</strong>{#if event.type}{' · '}<span class="type">{capitalize(event.type)}</span
+            >{/if}
+    </p>
     <p class="where">
-        {#if event.type}<span class="type">{capitalize(event.type)}</span>{' · '}{/if}{event.event}{#if event.location}<br
-            /><span class="muted">{event.location}</span>{/if}
+        {event.event}{#if event.location}<br /><span class="muted">{event.location}</span>{/if}
     </p>
     <p class="when label">
         <time datetime={event.date}>{event.when}</time>{#if event.time}&nbsp;· {event.time}{/if}
@@ -74,12 +87,28 @@
         border: 2px solid var(--accent-color);
     }
 
+    .head {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tags {
+        order: -1;
+        margin: 0;
+    }
+
+    /* Set in full here, so the title looks the same at every heading level. */
     .title {
+        font-family: var(--header-font);
+        font-weight: var(--header-weight);
+        letter-spacing: var(--header-tracking);
         font-size: 1.12rem;
         line-height: 1.35;
+        text-wrap: pretty;
         margin: 0.1em 0 0.3em 0;
     }
 
+    .role,
     .where {
         font-size: var(--small-font-size);
         line-height: 1.45;

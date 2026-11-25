@@ -8,11 +8,10 @@
 
 <footer>
     <p>
-        Last updated {data.built}. To the extent possible under law, {data.profile.name} has waived all
-        copyright and related or neighboring rights to the design and implementation of this site (<a
+        Last updated {data.built}. Site code is released under <a
             rel="license"
             href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a
-        >). The waiver covers the site's code, not its text, papers or photos.
+        >. Text, papers, and photos © {data.profile.name} unless noted.
     </p>
     <p>
         <a href="https://github.com/amyjko/faculty">Site design based on Amy J. Ko's faculty site</a>.

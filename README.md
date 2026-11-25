@@ -29,7 +29,8 @@ but keeping the file newest-first makes it easier to read:
 ```yaml
 - date: 2027-04-12            # required, written YYYY-MM-DD
   end_date: 2027-04-14        # optional, for multi-day events
-  role: panelist              # shown as a tag
+  role: panelist              # required; shown right under the title
+  kind: panel                 # required; shown as a small tag above the title
   title: "Title of the panel or session"
   event: Name of the conference or convening
   location: City, State
@@ -38,9 +39,18 @@ but keeping the file newest-first makes it easier to read:
     program: https://example.org/program
 ```
 
+`role` must be one of: organizer, lead organizer, co-organizer, PI and organizer, panelist,
+instructor, presenter, invited speaker, invited participant. `kind` must be one of: workshop,
+tutorial, training, panel, talk, paper, convening. The build stops with a message if either is
+missing or not on its list. To allow a new one, add it to `eventRoles` or `eventKinds` in
+`src/lib/server/content.ts` and to the list at the top of `events.yaml`.
+
 Other optional fields: `type` (e.g. `half-day workshop`), `description`, `moderator`, `speakers`,
-`time`, `date_display` (to show a fuzzy date such as `"Aug 2026"` instead of the exact day), and
-`group` (entries with the same group text appear together under one heading).
+`time` (e.g. `"1:00–5:00 PM"`, shown after the date), `nto: true` (adds a small "NTO" marker for
+National Tutoring Observatory work), `date_display` (to show a fuzzy date such as `"Aug 2026"`
+instead of the exact day), and `group` (entries with the same group text appear together under one
+heading). Under "Past", entries sit under a heading for each year, and everything before 2025 under
+"2024 and earlier". A group sits under the year of its newest entry.
 
 - **Upcoming vs. past** is worked out from the dates. The site also rebuilds every Monday, so
   events move to "Past" on their own.

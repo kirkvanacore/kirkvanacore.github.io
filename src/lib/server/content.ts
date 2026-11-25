@@ -12,6 +12,7 @@ import type {
     ServiceRole,
     SiteEvent,
     TimelineItem,
+    TimelineYear,
 } from '#lib/types.ts';
 import { formatWhen, linkList, slug, today } from '#lib/format.ts';
 
@@ -51,12 +52,33 @@ featured.forEach((paper, i) =>
 export const nto = load<NTO>('nto');
 export const service = load<ServiceRole[]>('service') ?? [];
 
+/** The roles an event can give Kirk. The header of events.yaml lists the same. */
+const eventRoles = [
+    'organizer',
+    'lead organizer',
+    'co-organizer',
+    'PI and organizer',
+    'panelist',
+    'instructor',
+    'presenter',
+    'invited speaker',
+    'invited participant',
+];
+
+/** What sort of event it is, shown as a tag on each entry. */
+const eventKinds = ['workshop', 'tutorial', 'training', 'panel', 'talk', 'paper', 'convening'];
+
 const records = load<EventRecord[]>('events') ?? [];
 records.forEach((record, i) => {
     const where = `events.yaml entry #${i + 1} ("${record?.title ?? 'untitled'}")`;
     require(record?.title, `${where} needs a title`);
     require(record.event, `${where} needs an event`);
     require(isoDate.test(String(record.date)), `${where} needs a date written like 2026-11-09`);
+    // Hidden entries are checked when they're published.
+    if (record.publish !== false) {
+        require(eventRoles.includes(String(record.role)), `${where} needs a role, one of: ${eventRoles.join(', ')}`);
+        require(eventKinds.includes(String(record.kind)), `${where} needs a kind, one of: ${eventKinds.join(', ')}`);
+    }
     if (record.image) require(record.image.src && record.image.alt, `${where} has an image without both src and alt`);
     for (const photo of record.photos ?? []) require(photo?.src && photo?.alt, `${where} has a photo without both src and alt`);
     if (record.end_date) require(isoDate.test(String(record.end_date)), `${where} has an end_date that isn't written like 2026-11-13`);
@@ -82,7 +104,9 @@ export const events: SiteEvent[] = records
             upcoming: (end_date ?? date) >= now,
             highlight: record.highlight === true,
             group: record.group,
-            role: record.role,
+            role: String(record.role),
+            kind: String(record.kind),
+            nto: record.nto === true,
             title: record.title,
             type: record.type,
             description: record.description,
@@ -119,4 +143,23 @@ export function timeline(list: SiteEvent[]): TimelineItem[] {
         }
     }
     return items;
+}
+
+/** Past events from before this year share one heading, "2024 and earlier". */
+const ownYearFrom = 2025;
+
+/**
+ * Puts a past timeline under year headings. A group goes under the year of its
+ * newest event, so a series that spans years stays in one piece.
+ */
+export function byYear(items: TimelineItem[]): TimelineYear[] {
+    const years: TimelineYear[] = [];
+    for (const item of items) {
+        const year = Number((item.kind === 'event' ? item.event : item.events[0]).date.slice(0, 4));
+        const heading = year >= ownYearFrom ? String(year) : `${ownYearFrom - 1} and earlier`;
+        const last = years.at(-1);
+        if (last?.heading === heading) last.items.push(item);
+        else years.push({ id: `past-${slug(heading)}`, heading, items: [item] });
+    }
+    return years;
 }

@@ -4,20 +4,22 @@
 
     interface Props {
         items: TimelineItem[];
+        /** Heading level for entries and group headings: 3 right under a section, 4 under a year heading. */
+        level?: 3 | 4;
     }
 
-    let { items }: Props = $props();
+    let { items, level = 3 }: Props = $props();
 </script>
 
 <div class="timeline">
     {#each items as item (item.kind === 'event' ? item.event.id : item.id)}
         {#if item.kind === 'event'}
-            <EventEntry event={item.event} />
+            <EventEntry event={item.event} {level} />
         {:else}
             <div class="group" id={item.id}>
-                <h3 class="group-heading">{item.heading}</h3>
+                <svelte:element this={`h${level}`} class="group-heading">{item.heading}</svelte:element>
                 {#each item.events as event (event.id)}
-                    <EventEntry {event} level={4} />
+                    <EventEntry {event} level={(level + 1) as 4 | 5} />
                 {/each}
             </div>
         {/if}

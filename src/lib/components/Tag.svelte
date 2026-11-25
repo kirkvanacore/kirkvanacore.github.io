@@ -2,12 +2,14 @@
     interface Props {
         label: string;
         quiet?: boolean;
+        /** Spells out an abbreviated label, such as "NTO". */
+        expansion?: string;
     }
 
-    let { label, quiet = false }: Props = $props();
+    let { label, quiet = false, expansion }: Props = $props();
 </script>
 
-<span class="tag" class:quiet>{label}</span>
+<span class="tag" class:quiet>{#if expansion}<abbr title={expansion}>{label}</abbr>{:else}{label}{/if}</span>
 
 <style>
     .tag {
@@ -29,5 +31,9 @@
         border: 1px solid var(--border-color);
         color: var(--text-color);
         font-weight: var(--text-weight);
+    }
+
+    abbr {
+        text-decoration: none;
     }
 </style>

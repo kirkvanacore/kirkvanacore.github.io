@@ -5,13 +5,19 @@
 # highlight: true -> also list it under "Recent & upcoming events" on the home page,
 #   with a slideshow of its photos. `image: {src: ..., alt: ...}` adds a picture shown first,
 #   on the home page only (e.g. a promotional image for an event that hasn't happened yet).
-# role values: organizer | lead organizer | co-organizer | panelist | instructor | presenter | invited participant
+# Every shown entry needs a role and a kind; the build stops if either is missing or not on these lists.
+# role (shown right under the title): organizer | lead organizer | co-organizer | PI and organizer |
+#   panelist | instructor | presenter | invited speaker | invited participant
+# kind (the small tag above the title): workshop | tutorial | training | panel | talk | paper | convening
+# nto: true -> adds a small "NTO" marker for National Tutoring Observatory work.
+# time: "1:00–5:00 PM" -> shown after the date.
 
 - date: 2027-03-22
   highlight: true
   end_date: 2027-03-24
   status: upcoming
-  role: Co-PI and organizer
+  role: PI and organizer
+  kind: convening
   title: "HUMAN AI Collaboration, Creativity and Critical Thinking: A Thought Summit on the Transformation of Education in the Age of Artificial Intelligence"
   event: Cornell Thought Summits (Cornell AI Initiative)
   location: Cornell University, Ithaca, NY
@@ -32,54 +38,63 @@
 - date: 2026-11-09
   end_date: 2026-11-13
   role: instructor
+  kind: tutorial
+  nto: true
   title: "National Tutoring Observatory interactive tutorial (Sandpiper annotation, multimodal demo, MTM data)"
   with: [Doug Pietrzak]
   event: Eighth International Conference on Quantitative Ethnography (ICQE26)
-  location: Hiroshima, Japan
+  location: International Conference Center Hiroshima, Hiroshima, Japan
   verify: "Exact tutorial day and official title."
   links:
     conference: https://www.qesoc.org/icqe26/
 
 - date: 2026-10-05
   role: lead organizer
+  kind: training
+  nto: true
   title: "How Should We Benchmark AI Tutors? Toward Valid and Impact-Oriented Evaluation"
-  type: half-day training session
+  type: sponsored 4-hour training session
+  time: "1:00–5:00 PM"
   with: [René Kizilcec, Clayton Cohn, Josh Marland, Zhuqian Zhou]
   speakers: "Ai2, ETH Zürich, Eedi, Khan Academy, Google DeepMind"
   event: NCME AIME-Con 2026
   location: Wyndham Grand Pittsburgh Downtown, Pittsburgh, PA
-  verify: "Session day (training sessions ran Oct 5; conference Oct 5–7)."
   links:
     conference: https://ncme.org/event/2026-aime-con/
-    training_sessions: https://ncme.org/wp-content/uploads/2026/07/2026-Selected-Training-Sessions.pdf
+    training_sessions: https://ncme.org/wp-content/uploads/2026/09/2026-NCME-AIME-Con-Training-Sessions-9-8-26.pdf
 
 - date: 2026-09-23
   role: instructor
+  kind: workshop
+  nto: true
   title: "AI-Powered Workflows for Understanding and Evaluating Instructional Discourse"
   type: four-hour workshop (NTO and Stanford SCALE Initiative)
   with: [Julian Bernado]
   event: SREE 2026 Conference
-  location: Baltimore, MD
+  location: Baltimore Marriott Waterfront, Baltimore, MD
   verify: "Workshop day (conference ran Sept 23–26)."
   links:
     conference: https://sree.memberclicks.net/2026-conference
 
 - date: 2026-09-23
   role: presenter
+  kind: paper
   title: "Estimating Heterogeneous Effects of On-Demand Tutoring"
   type: paper presentation
   event: SREE 2026 Conference
-  location: Baltimore, MD
+  location: Baltimore Marriott Waterfront, Baltimore, MD
   verify: "Session day."
 
 - date: 2026-08-25
   date_display: "Aug 2026"
   role: invited participant
+  kind: convening
+  nto: true
   title: "OpenAI Learning Lab: inaugural in-person research convening"
   description: >-
-    One of 30+ researchers convened at OpenAI to set a shared research agenda
-    for AI and learning. The recap names Cornell's National Tutoring
-    Observatory among the Learning Lab's collaborators.
+    Invited to OpenAI's inaugural in-person Learning Lab convening to help set
+    a shared research agenda for AI and learning. The recap names Cornell's
+    National Tutoring Observatory among the Learning Lab's collaborators.
   event: OpenAI Learning Lab
   location: OpenAI, San Francisco, CA
   note_for_site: "Kirk appears in a photo in the recap. Link to it; do not copy or hotlink OpenAI's images."
@@ -91,6 +106,7 @@
   highlight: true
   group: "Festival of Learning 2026 (AIED · EDM · L@S), Seoul"
   role: panelist
+  kind: panel
   title: "Creating Infrastructure that Strengthens the Quality and Impact of Educational Research"
   moderator: "Jeremy Roschelle (Digital Promise)"
   with: ["Hiroaki Ogata (Kyoto University)", "Tanja Käser (EPFL)", "Roberto Martinez-Maldonado (Monash University)"]
@@ -108,8 +124,11 @@
   highlight: true
   group: "Festival of Learning 2026 (AIED · EDM · L@S), Seoul"
   role: lead organizer
-  title: "Advancing the Science of Human and AI Tutoring Through Shared Infrastructure: A Collaborative Workshop"
+  kind: workshop
+  nto: true
+  title: "Advancing the Science of Human and AI Tutoring through Shared Infrastructure: A Collaborative Workshop"
   type: full-day workshop
+  time: "9:00 AM–6:00 PM"
   description: >-
     Led by the National Tutoring Observatory, the Stanford SCALE Initiative and
     the LEVI HAT project, with sessions on open-source data, infrastructure
@@ -127,6 +146,7 @@
 
 - date: 2026-06-22
   role: invited speaker
+  kind: talk
   title: "Towards Impact-Oriented Benchmarks for AI Tutors"
   description: >-
     Online talk presenting a causal framework for evaluating whether an AI
@@ -139,6 +159,8 @@
 - date: 2026-05-05
   end_date: 2026-05-06
   role: instructor
+  kind: workshop
+  nto: true
   title: "From Insight to Action: Closing the Loop on Tutoring Data"
   type: workshop with live Sandpiper demo
   with: [Justin Reich, Rachel Slama]
@@ -149,32 +171,44 @@
 
 - date: 2026-04-27
   role: lead organizer
+  kind: workshop
+  nto: true
   title: "National Tutoring Observatory’s Interactive Workshop on AI Annotation and Teacher Analytics"
   type: full-day workshop
+  time: "9:00 AM–5:00 PM CET"
   event: LAK26, 16th International Learning Analytics & Knowledge Conference
-  location: Bergen, Norway
+  location: Radisson Blu Royal Hotel, Bergen, Norway
   links:
     workshop: https://sites.google.com/cornell.edu/lak26-nto-workshop/home
 
 - date: 2026-04-09
   role: presenter
+  kind: talk
+  nto: true
   title: "Sandpiper launch webinar: the National Tutoring Observatory's open-source AI annotation app"
   description: "Public launch webinar for Sandpiper, with a panel including Susanna Loeb."
   event: National Tutoring Observatory
   location: Online
-  verify: "Your role (presenter? panelist?)."
+  verify: "Your role (presenter? panelist?), and that Susanna Loeb was on the panel."
   links:
     news: https://news.cornell.edu/stories/2026/04/decoding-great-teaching-and-more-new-app-analyzes-conversational-data-scale
+    paper: https://arxiv.org/abs/2603.08406
 
 - date: 2025-10-27
   role: presenter
+  kind: paper
   title: "From Theory to Practice: Generative AI Applications in Complex Educational Assessment"
   type: coordinated paper session
+  description: >-
+    Paper: “When Humans Can’t Agree, Neither Can Machines: The Promise and
+    Pitfalls of LLMs for Formative Literacy Assessment,” with Owen Henkel and
+    Bill Roberts.
   with: ["Khan Academy", "Carnegie Learning", "Edmentum", "University of Colorado Boulder", "Rising Academies", "Learning Data Insights"]
   event: NCME AIME-Con 2025
   location: Wyndham Grand Pittsburgh Downtown, Pittsburgh, PA
-  verify: "Session day (Oct 27–29) and your paper's title."
+  verify: "Session title (it doesn't appear in the proceedings) and session day (Oct 27–29)."
   links:
+    paper: https://aclanthology.org/2025.aimecon-sessions.8/
     proceedings: https://aclanthology.org/2025.aimecon-sessions/
 
 - date: 2025-10-13
@@ -189,10 +223,13 @@
 
 - date: 2025-09-10
   role: panelist
+  kind: panel
   title: "Inaugural International Workshop on Rethinking Children’s Automatic Speech Recognition (ASR) for Education"
   type: invitation-only workshop
+  description: "Panel: “ASR and the Future of Assessment.”"
+  with: [Nonye Alozie, Lydia Liu, Susan Lottridge]
   event: University at Buffalo Institute for Artificial Intelligence and Data Science; National AI Institute for Exceptional Education
-  location: Lockwood Hall, University at Buffalo, Buffalo, NY
+  location: University at Buffalo, Buffalo, NY
   photos:
     - {src: assets/events/2025-09-ub-childrens-asr-panel.jpg, alt: "Kirk Vanacore speaking on a panel at the children's ASR workshop, University at Buffalo"}
   links:
@@ -209,8 +246,9 @@
     paper: https://hdl.handle.net/1721.1/162578
 
 - date: 2025-07-20
-  group: "CausalEDM workshop series (Educational Data Mining)"
+  group: "CausalEDM workshop series (Educational Data Mining), 2022–2025"
   role: lead organizer
+  kind: workshop
   title: "Causal Inference in Educational Data Mining (CausalEDM), 5th edition"
   type: half-day workshop
   with: ["Anthony F. Botelho", "Avery H. Closser", "Adam C. Sales", "Neil T. Heffernan"]
@@ -219,11 +257,12 @@
   verify: "Workshop day (EDM 2025 workshops ran July 20)."
   links:
     workshop: https://sites.google.com/view/causaledm2025workshop
-    paper: "CausalEDM: Linking Innovations in Instructional Design and the Complex Behaviors that Underlie Learning Processes and Outcomes (EDM 2025)"
+    paper: https://educationaldatamining.org/edm2025/proceedings/2025.EDM.workshop-tutorial-abstracts.247/2025.EDM.workshop-tutorial-abstracts.247.pdf
 
 - date: 2025-04-01
   date_display: "Spring 2025"
   role: invited speaker
+  kind: talk
   title: "Fully Latent Principal Stratification"
   event: Practically Causal Inference Learning Group, UCLA
   location: Online / UCLA
@@ -232,18 +271,21 @@
 - date: 2024-11-21
   date_display: "Nov 2024"
   role: invited speaker
+  kind: talk
   title: "Causal Inference in Educational Data Mining"
   event: Penn Center for Learning Analytics, Research Academic Consortium (RAC)
   location: University of Pennsylvania, Philadelphia, PA
   verify: "Date (an email places a learning analytics colloquium talk on Thu Nov 21, 2024; CV lists Fall 2024)."
 
 - date: 2024-07-14
-  group: "CausalEDM workshop series (Educational Data Mining)"
+  group: "CausalEDM workshop series (Educational Data Mining), 2022–2025"
   role: co-organizer
+  kind: workshop
   title: "Causal Inference in Educational Data Mining (CausalEDM), 4th edition"
   with: ["Anthony F. Botelho", "Avery H. Closser", "Adam C. Sales", "Neil T. Heffernan"]
   event: 17th International Conference on Educational Data Mining (EDM 2024)
   location: Atlanta, GA
+  verify: "Workshop day (not yet confirmed)."
   links:
     paper: https://www.educationaldatamining.org/edm2024/proceedings/2024.EDM-tutorials.134/
 
@@ -257,8 +299,9 @@
 
 - date: 2022-07-01
   date_display: "Jul 2022"
-  group: "CausalEDM workshop series (Educational Data Mining)"
+  group: "CausalEDM workshop series (Educational Data Mining), 2022–2025"
   role: presenter
+  kind: paper
   title: "Evaluating Performance-Based Rewards Using Cut Points in an Educational Game: A Case for Regression Discontinuity"
   event: "CausalEDM workshop, EDM 2022 (chair: Adam Sales)"
   location: Durham, England
