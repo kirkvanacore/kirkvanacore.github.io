@@ -81,6 +81,10 @@ redeploy.
 The CV page then shows **View CV** and **Download PDF** buttons. The PDF is Google's export of the
 doc's current version. Until `cv_url` is set, the page asks visitors to email you for a copy.
 
+The page also lists **Appointments** (`positions` in `content/profile.yaml`) and **Education**
+(`education`). Either can name an advisor with `advisor: {name: …, url: …}`, and the name links to
+the URL.
+
 ## Edit the bio
 
 `long_bio` in `content/profile.yaml` is the bio on the home page. Each `- >-` item is one

@@ -2,6 +2,12 @@
 
 export type Links = Record<string, string>;
 
+/** Someone named on the site, such as an advisor; `url` links their name. */
+export interface Person {
+    name: string;
+    url?: string;
+}
+
 export interface Profile {
     name: string;
     credentials?: string;
@@ -14,7 +20,9 @@ export interface Profile {
     areas_of_interest: string[];
     short_bio: string;
     long_bio: string[];
-    education: { degree: string; school: string; year: number | string }[];
+    education: { degree: string; school: string; year: number | string; advisor?: Person }[];
+    /** Appointments for the CV page, newest first. */
+    positions?: { years: string; title: string; org: string; advisor?: Person }[];
     links: {
         google_scholar?: string;
         semantic_scholar?: string;

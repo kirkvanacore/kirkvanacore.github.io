@@ -44,10 +44,23 @@ long_bio:
     the impact of gamification, generative AI feedback, and tutoring
     interventions on student persistence and self-regulated learning.
 
+# Shown on the CV page. `advisor` is optional; its `url` links the name.
 education:
-  - {degree: "Ph.D., Learning Sciences & Technologies", school: "Worcester Polytechnic Institute", year: 2024}
+  - degree: "Ph.D., Learning Sciences & Technologies"
+    school: Worcester Polytechnic Institute
+    year: 2024
+    advisor: {name: Adam Sales, url: https://www.wpi.edu/people/faculty/asales}
   - {degree: "M.A., Child Study & Human Development", school: "Tufts University", year: 2018}
   - {degree: "B.A., History", school: "Gordon College", year: 2010}
+
+# Appointments on the CV page, newest first (from the CV, Nov 2026). `advisor` is optional.
+positions:
+  - {years: "2025–present", title: "Assistant Research Professor, Information Science", org: Cornell University}
+  - {years: "2025–present", title: Research Director, org: National Tutoring Observatory}
+  - years: "2024–2025"
+    title: Postdoctoral Researcher
+    org: Penn Center for Learning Analytics, University of Pennsylvania
+    advisor: {name: Ryan Baker, url: https://learninganalytics.upenn.edu/ryanbaker/}
 
 links:
   google_scholar: https://scholar.google.com/citations?user=eTCfIVkAAAAJ&hl=en

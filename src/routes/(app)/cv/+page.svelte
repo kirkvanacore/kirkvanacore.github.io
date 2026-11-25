@@ -2,6 +2,7 @@
     import Title from '#lib/components/Title.svelte';
     import Section from '#lib/components/Section.svelte';
     import Icon from '#lib/components/Icon.svelte';
+    import type { Person } from '#lib/types.ts';
 
     let { data } = $props();
 
@@ -29,21 +30,40 @@
     </p>
 {/if}
 
+{#snippet advisor(person: Person | undefined)}
+    {#if person}<span class="advisor"
+            >Advisor: {#if person.url}<a href={person.url}>{person.name}</a>{:else}{person.name}{/if}</span
+        >{/if}
+{/snippet}
+
+<Section id="appointments" header="Appointments">
+    {#if profile.positions && profile.positions.length > 0}
+        <ul class="rows">
+            {#each profile.positions as position (position.title + position.org)}
+                <li>
+                    <span class="label">{position.years}</span>
+                    <span
+                        ><strong>{position.title}</strong>, {position.org}{@render advisor(position.advisor)}</span
+                    >
+                </li>
+            {/each}
+        </ul>
+    {:else}
+        <ul class="positions">
+            {#each profile.titles as title (title)}
+                <li>{title}</li>
+            {/each}
+        </ul>
+    {/if}
+</Section>
+
 <Section id="education" header="Education">
-    <ul class="education">
+    <ul class="rows">
         {#each profile.education as degree (degree.degree)}
             <li>
                 <span class="label">{degree.year}</span>
-                <span><strong>{degree.degree}</strong>, {degree.school}</span>
+                <span><strong>{degree.degree}</strong>, {degree.school}{@render advisor(degree.advisor)}</span>
             </li>
-        {/each}
-    </ul>
-</Section>
-
-<Section id="positions" header="Current positions">
-    <ul class="positions">
-        {#each profile.titles as title (title)}
-            <li>{title}</li>
         {/each}
     </ul>
     {#if profile.links.google_scholar}
@@ -61,23 +81,36 @@
         gap: 0.75em;
     }
 
-    .education {
+    .rows {
         list-style: none;
         padding: 0;
-        margin: 0;
+        margin: 0 0 1em 0;
     }
 
-    .education li {
+    .rows li {
         display: grid;
-        grid-template-columns: 4em 1fr;
+        grid-template-columns: 7.5em 1fr;
         gap: 0.75em;
         padding: 0.45em 0;
         border-bottom: 1px solid var(--border-color);
         line-height: 1.45;
     }
 
-    .education .label {
+    .rows .label {
         padding-top: 0.15em;
+    }
+
+    .advisor {
+        display: block;
+        font-size: var(--small-font-size);
+        color: var(--muted-color);
+    }
+
+    @media only screen and (max-width: 520px) {
+        .rows li {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
     }
 
     .positions {
