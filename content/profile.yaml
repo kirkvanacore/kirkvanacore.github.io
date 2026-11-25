@@ -23,26 +23,34 @@ short_bio: >-
   statistics, machine learning, and artificial intelligence to uncover causal
   learning mechanisms in environments that combine human and AI instruction.
 
-# Use on the About/Home page.
+# The home page bio, first person (Kirk's text, Nov 2026). One "- >-" item per paragraph.
 long_bio:
   - >-
-    Kirk Vanacore is the Research Director of the National Tutoring
-    Observatory. He integrates statistics, machine learning, and artificial
-    intelligence to uncover causal learning mechanisms in environments that
-    combine human and AI instruction. He earned his Ph.D. in Learning Sciences
-    & Technologies from Worcester Polytechnic Institute. He was a postdoctoral
-    fellow at the Penn Center for Learning Analytics at the University of
-    Pennsylvania, where he mentored graduate students and conducted research in
-    Learning Analytics and Educational Data Mining.
+    I am an Assistant Research Professor in Information Science at Cornell University and the
+    Research Director of the National Tutoring Observatory. I am a learning scientist who uses
+    computational and causal methods to understand how people learn and to guide how AI in
+    education is developed, evaluated, and governed. My research addresses the tension between
+    educational technologies’ capacity to support students’ thinking and their potential to
+    bypass the cognitive work needed to learn. I study the mechanisms through which these
+    technologies affect learning, and the conditions under which they narrow, rather than widen,
+    gaps between students with greater and fewer educational resources.
   - >-
-    Kirk’s work primarily uses experimental and quasi-experimental
-    methods—such as regression discontinuity and propensity score matching—to
-    examine how interactions within educational platforms shape learning
-    behaviors and outcomes. His recent projects incorporate behavior detection
-    model outputs into principal stratification frameworks to explore how
-    specific student behaviors moderate learning effects. He also investigates
-    the impact of gamification, generative AI feedback, and tutoring
-    interventions on student persistence and self-regulated learning.
+    My work combines experimental and quasi-experimental designs with machine learning. I have
+    used fully latent principal stratification to examine how students' tendency to game the
+    system shapes the effects of instructional assistance. I have also studied how learners
+    using a conversational AI mathematics tutor across sub-Saharan Africa respond to difficulty,
+    and combined deep knowledge tracing with causal forests to estimate the effects of
+    individual human tutoring sessions. At the National Tutoring Observatory, I lead work on the
+    open data, annotation tools, and partnerships needed to connect tutoring interactions to
+    evidence of learning. My goal is to make learning and equity central objectives of AI
+    development, so that widely available AI instruction benefits the learners whom existing
+    systems serve least effectively.
+  - >-
+    I earned my Ph.D. in Learning Sciences & Technologies from Worcester Polytechnic Institute,
+    where I was advised by Adam Sales. I then was a postdoctoral researcher at the Penn Center
+    for Learning Analytics at the University of Pennsylvania, working with Ryan Baker, where I
+    mentored graduate students and conducted research in learning analytics and educational data
+    mining.
 
 # Shown on the CV page. `advisor` is optional; its `url` links the name.
 education:
