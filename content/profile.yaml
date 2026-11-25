@@ -32,14 +32,13 @@ short_bio: >-
 bio_shown: 1
 long_bio:
   - >-
-    I am an Assistant Research Professor in Information Science at Cornell University and the
-    Research Director of the National Tutoring Observatory. I am a learning scientist who uses
-    computational and causal methods to understand how people learn and to guide how AI in
-    education is developed, evaluated, and governed. My research addresses the tension between
-    educational technologies’ capacity to support students’ thinking and their potential to
-    bypass the cognitive work needed to learn. I study the mechanisms through which these
-    technologies affect learning, and the conditions under which they narrow, rather than widen,
-    gaps between students with greater and fewer educational resources.
+    I am a learning scientist who uses computational and causal methods to understand how people
+    learn and to guide how AI in education is developed, evaluated, and governed. My research
+    addresses the tension between educational technologies’ capacity to support students’
+    thinking and their potential to bypass the cognitive work needed to learn. I study the
+    mechanisms through which these technologies affect learning, and the conditions under which
+    they narrow, rather than widen, gaps between students with greater and fewer educational
+    resources.
   - >-
     My work combines experimental and quasi-experimental designs with machine learning. I have
     used fully latent principal stratification to examine how students’ tendency to game the
