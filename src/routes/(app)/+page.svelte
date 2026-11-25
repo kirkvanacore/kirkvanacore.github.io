@@ -34,9 +34,9 @@
     <p class="more"><a href="/publications">All selected publications and the full list →</a></p>
 </Section>
 
-<Section id="recent" header="Recent & upcoming">
+<Section id="recent" header="Recent & upcoming events">
     <ul class="recent">
-        {#each data.recent as event (event.id)}
+        {#each data.highlights as event (event.id)}
             <li>
                 <p class="label">
                     <time datetime={event.date}>{event.when}</time>{#if event.upcoming}&nbsp;· Upcoming{/if}

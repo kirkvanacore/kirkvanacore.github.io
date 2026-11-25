@@ -56,7 +56,7 @@ export function linkName(key: string): string {
 /** A YAML links map as [label, url] pairs, in the order written. */
 export function linkList(links?: Links): [string, string][] {
     return Object.entries(links ?? {})
-        .filter(([, url]) => typeof url === 'string' && url.length > 0)
+        .filter(([, url]) => typeof url === 'string' && /^(https?:|mailto:)/.test(url))
         .map(([key, url]) => [linkName(key), url]);
 }
 

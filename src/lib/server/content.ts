@@ -78,6 +78,7 @@ export const events: SiteEvent[] = records
             end_date,
             when: record.date_display ?? formatWhen(date, end_date),
             upcoming: (end_date ?? date) >= now,
+            highlight: record.highlight === true,
             group: record.group,
             role: record.role,
             title: record.title,

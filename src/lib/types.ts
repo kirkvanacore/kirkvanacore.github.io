@@ -53,6 +53,8 @@ export interface EventRecord {
     verify?: string;
     note_for_site?: string;
     group?: string;
+    /** Also list it under "Recent & upcoming events" on the home page. */
+    highlight?: boolean;
     role?: string;
     title: string;
     type?: string;
@@ -74,6 +76,7 @@ export interface SiteEvent {
     end_date?: string;
     when: string;
     upcoming: boolean;
+    highlight: boolean;
     group?: string;
     role?: string;
     title: string;
@@ -126,7 +129,7 @@ export interface SiteData {
     featured: SitePaper[];
     nto: NTO;
     service: ServiceRole[];
-    recent: SiteEvent[];
+    highlights: SiteEvent[];
     upcoming: TimelineItem[];
     past: TimelineItem[];
     built: string;

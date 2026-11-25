@@ -16,8 +16,8 @@ export function load() {
         })),
         nto,
         service,
-        /** The four newest published events, for the home page. */
-        recent: events.slice(0, 4),
+        /** Events marked `highlight: true`, newest first; the four newest if none are marked. */
+        highlights: events.some((e) => e.highlight) ? events.filter((e) => e.highlight) : events.slice(0, 4),
         upcoming: timeline(events.filter((e) => e.upcoming)),
         past: timeline(events.filter((e) => !e.upcoming)),
         built: new Date().toLocaleDateString('en-US', {
