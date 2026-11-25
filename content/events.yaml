@@ -246,7 +246,6 @@
     paper: https://hdl.handle.net/1721.1/162578
 
 - date: 2025-07-20
-  group: "CausalEDM workshop series (Educational Data Mining), 2022–2025"
   role: lead organizer
   kind: workshop
   title: "Causal Inference in Educational Data Mining (CausalEDM), 5th edition"
@@ -278,7 +277,6 @@
   verify: "Date (an email places a learning analytics colloquium talk on Thu Nov 21, 2024; CV lists Fall 2024)."
 
 - date: 2024-07-14
-  group: "CausalEDM workshop series (Educational Data Mining), 2022–2025"
   role: co-organizer
   kind: workshop
   title: "Causal Inference in Educational Data Mining (CausalEDM), 4th edition"
@@ -299,7 +297,6 @@
 
 - date: 2022-07-01
   date_display: "Jul 2022"
-  group: "CausalEDM workshop series (Educational Data Mining), 2022–2025"
   role: presenter
   kind: paper
   title: "Evaluating Performance-Based Rewards Using Cut Points in an Educational Game: A Case for Regression Discontinuity"
