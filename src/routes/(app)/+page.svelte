@@ -58,7 +58,7 @@
     <p class="more"><a href="/publications">All selected publications and the full list →</a></p>
 </Section>
 
-<Section id="recent" header="Recent & upcoming events">
+<Section id="recent" header="Featured events">
     <ul class="recent">
         {#each data.highlights as event (event.id)}
             <li>
@@ -88,6 +88,17 @@
 </Section>
 
 <style>
+    /* Justified. On phones, hyphenation keeps the short lines from opening wide gaps between words. */
+    .bio p {
+        text-align: justify;
+    }
+
+    @media only screen and (max-width: 520px) {
+        .bio p {
+            hyphens: auto;
+        }
+    }
+
     .bio > p:first-child {
         font-size: 1.08em;
     }

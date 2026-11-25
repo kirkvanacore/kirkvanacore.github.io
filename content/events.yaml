@@ -2,7 +2,7 @@
 # Render as a timeline; group entries that share `group` under one heading.
 # publish: false  -> keep in the file but do NOT render (Kirk to confirm first).
 # verify: "..."   -> render, but Kirk should check the noted detail before launch.
-# highlight: true -> also list it under "Recent & upcoming events" on the home page,
+# highlight: true -> also list it under "Featured events" on the home page,
 #   with a slideshow of its photos. `image: {src: ..., alt: ...}` adds a picture shown first,
 #   on the home page only (e.g. a promotional image for an event that hasn't happened yet).
 # Every shown entry needs a role and a kind; the build stops if either is missing or not on these lists.
@@ -35,17 +35,17 @@
   event: AIMS convening
   location: Houston, TX
 
-- date: 2026-11-09
-  end_date: 2026-11-13
+- date: 2026-11-10
   role: instructor
   kind: tutorial
   nto: true
-  title: "National Tutoring Observatory interactive tutorial (Sandpiper annotation, multimodal demo, MTM data)"
-  with: [Doug Pietrzak]
+  title: "Open-Source Tools for Transcribing and Coding Multimodal Qualitative Data: An Interactive Tutorial"
+  # Every facilitator on the official workshops page, in its order (Kirk is listed first).
+  with: [Bakhtawar Ahtisham, Zhuqian Zhou, Daryl Hedley, Doug Pietrzak, Joshua Marland, Rachel Slama, René Kizilcec]
   event: Eighth International Conference on Quantitative Ethnography (ICQE26)
   location: International Conference Center Hiroshima, Hiroshima, Japan
-  verify: "Exact tutorial day and official title."
   links:
+    workshops: https://www.qesoc.org/icqe26-workshops/
     conference: https://www.qesoc.org/icqe26/
 
 - date: 2026-10-05
@@ -72,18 +72,22 @@
   with: [Julian Bernado]
   event: SREE 2026 Conference
   location: Baltimore Marriott Waterfront, Baltimore, MD
-  verify: "Workshop day (conference ran Sept 23–26)."
   links:
+    workshops: https://sree.memberclicks.net/2026-workshops
     conference: https://sree.memberclicks.net/2026-conference
 
-- date: 2026-09-23
+# Date from SREE's detailed program (updated 9/22/26, p. 38): Sat Sep 26, 10:15 AM EDT
+# session, Harbor D. The program summary agrees.
+- date: 2026-09-26
   role: presenter
   kind: paper
   title: "Estimating Heterogeneous Effects of On-Demand Tutoring"
   type: paper presentation
+  with: [Danielle Thomas, Justin Reich, René Kizilcec]
   event: SREE 2026 Conference
   location: Baltimore Marriott Waterfront, Baltimore, MD
-  verify: "Session day."
+  links:
+    program: https://sree.memberclicks.net/assets/detailed_programme%202026%209.22.pdf
 
 - date: 2026-08-25
   date_display: "Aug 2026"
@@ -156,8 +160,7 @@
   links:
     event: https://www.meetup.com/data-science-in-education/events/314736782/
 
-- date: 2026-05-05
-  end_date: 2026-05-06
+- date: 2026-05-06
   role: instructor
   kind: workshop
   nto: true
@@ -175,7 +178,6 @@
   nto: true
   title: "National Tutoring Observatory’s Interactive Workshop on AI Annotation and Teacher Analytics"
   type: full-day workshop
-  time: "9:00 AM–5:00 PM CET"
   event: LAK26, 16th International Learning Analytics & Knowledge Conference
   location: Radisson Blu Royal Hotel, Bergen, Norway
   links:

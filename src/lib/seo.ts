@@ -4,7 +4,7 @@
  */
 import { siteUrl } from '#lib/config.ts';
 import { venueShort } from '#lib/papers.ts';
-import type { NTO, Profile, SitePaper } from '#lib/types.ts';
+import type { NTO, Profile, ServiceRole, SitePaper } from '#lib/types.ts';
 
 const absolute = (path: string) => siteUrl + '/' + path.replace(/^\/+/, '');
 
@@ -68,11 +68,11 @@ export const describe = {
         return `Selected publications by ${profile.name}${venues.length ? `, including papers at ${prose(venues)}` : ''}, with summaries and links. The full list is on Google Scholar.`;
     },
     events(profile: Profile) {
-        return `Panels, workshops, tutorials and convenings with ${profile.name}, upcoming and past, plus professional service.`;
+        return `Panels, workshops, tutorials and convenings with ${profile.name}, upcoming and past.`;
     },
-    cv(profile: Profile) {
+    cv(profile: Profile, service: ServiceRole[] = []) {
         const orgs = unique((profile.positions ?? []).map((p) => p.org.split(', ').pop() ?? p.org));
-        return `Curriculum vitae of ${profile.name}${profile.credentials ? ', ' + profile.credentials : ''}: appointments${orgs.length ? ` at ${prose(orgs)}` : ''}, education and advisors.`;
+        return `Curriculum vitae of ${profile.name}${profile.credentials ? ', ' + profile.credentials : ''}: appointments${orgs.length ? ` at ${prose(orgs)}` : ''}, education${service.length ? ', advisors and professional service' : ' and advisors'}.`;
     },
     contact(profile: Profile) {
         const where = [

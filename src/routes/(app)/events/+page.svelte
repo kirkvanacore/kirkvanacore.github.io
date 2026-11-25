@@ -28,22 +28,6 @@
     </Section>
 {/if}
 
-{#if data.service.length > 0}
-    <Section id="service" header="Service">
-        <ul class="service">
-            {#each data.service as role (role.role + role.venue)}
-                <li>
-                    <span class="label year">{role.year}</span>
-                    <span
-                        ><strong>{role.role}</strong>,
-                        {#if role.link}<a href={role.link}>{role.venue}</a>{:else}{role.venue}{/if}</span
-                    >
-                </li>
-            {/each}
-        </ul>
-    </Section>
-{/if}
-
 <style>
     .intro {
         margin-top: -0.25em;
@@ -64,25 +48,5 @@
         content: '';
         flex: 1;
         border-top: 1px solid var(--border-color);
-    }
-
-    .service {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .service li {
-        display: grid;
-        grid-template-columns: 6.5em 1fr;
-        gap: 0.75em;
-        padding: 0.5em 0;
-        border-bottom: 1px solid var(--border-color);
-        font-size: var(--small-font-size);
-        line-height: 1.45;
-    }
-
-    .year {
-        padding-top: 0.1em;
     }
 </style>

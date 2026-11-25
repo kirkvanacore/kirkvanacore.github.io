@@ -14,9 +14,9 @@
   summary: >-
     A scalable framework that combines Deep Knowledge Tracing with causal
     forests to estimate the session-level effects of on-demand human tutoring.
-    Across 5,000+ middle-school math sessions, requesting a tutor raised
-    next-problem correctness by about 4 percentage points, with wide variation
-    across sessions and students.
+    Across 5,000+ middle-school math sessions, requesting tutoring was
+    estimated to increase next-problem correctness by about 4 percentage
+    points, with wide variation across sessions and students.
 
 - title: "From Tutor Moves to Tutoring States: Modeling the Timing and Sequencing of Pedagogical Strategies for Student Engagement"
   authors: "Vanacore, K., Lee, J., Ahtisham, B., Shaw, S., Reich, J., & Kizilcec, R. F."

@@ -15,7 +15,7 @@
     const pdfURL = $derived(docID ? `https://docs.google.com/document/d/${docID}/export?format=pdf` : undefined);
 </script>
 
-<Title text="CV" description={describe.cv(data.profile)} />
+<Title text="CV" description={describe.cv(data.profile, data.service)} />
 
 <h1>CV</h1>
 
@@ -74,6 +74,22 @@
         </p>
     {/if}
 </Section>
+
+{#if data.service.length > 0}
+    <Section id="service" header="Service">
+        <ul class="rows">
+            {#each data.service as role (role.role + role.venue)}
+                <li>
+                    <span class="label">{role.year}</span>
+                    <span
+                        ><strong>{role.role}</strong>,
+                        {#if role.link}<a href={role.link}>{role.venue}</a>{:else}{role.venue}{/if}</span
+                    >
+                </li>
+            {/each}
+        </ul>
+    </Section>
+{/if}
 
 <style>
     .actions {

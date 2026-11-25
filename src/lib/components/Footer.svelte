@@ -11,7 +11,8 @@
         Last updated {data.built}. Site code is released under <a
             rel="license"
             href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a
-        >. Text, papers, and photos © {data.profile.name} unless noted.
+        >. Site text © {data.profile.name} unless noted. Publications retain their respective copyrights and
+        licenses, and photos belong to their respective owners.
     </p>
     <p>
         <a href="https://github.com/amyjko/faculty">Site design based on Amy J. Ko's faculty site</a>.

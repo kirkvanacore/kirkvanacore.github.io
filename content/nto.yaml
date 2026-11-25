@@ -25,9 +25,12 @@ projects:
 
   - name: Million Tutor Moves (MTM)
     url: https://huggingface.co/datasets/NationalTutoringObservatory/mtm-000-sample
+    # Hugging Face lists the full releases as "planned" with no date; December 2026 is Kirk's to confirm.
     blurb: >-
-      An open multimodal dataset for the science of tutoring. A preview sample
-      showing the data structure is available on Hugging Face; public releases
-      begin in December 2026.
+      An open multimodal dataset for the science of tutoring. A preview release
+      of four tutoring sessions is on Hugging Face to show the data format; full
+      releases of text and audio-video sessions are planned, beginning in
+      December 2026. The data are openly licensed (CC BY 4.0); downloading
+      requires a Hugging Face sign-in and accepting the data-use terms.
     links:
       huggingface_org: https://huggingface.co/NationalTutoringObservatory

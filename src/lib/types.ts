@@ -65,7 +65,7 @@ export interface EventRecord {
     verify?: string;
     note_for_site?: string;
     group?: string;
-    /** Also list it under "Recent & upcoming events" on the home page. */
+    /** Also list it under "Featured events" on the home page. */
     highlight?: boolean;
     role?: string;
     /** What sort of event it is, shown as a tag (see `eventKinds` in content.ts). */

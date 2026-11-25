@@ -12,9 +12,9 @@ to update the site.
 |---|---|
 | `content/profile.yaml` | Name, titles, email, bio, areas of interest, education, profile links, CV link |
 | `content/featured.yaml` | The four selected papers (home page and Publications) |
-| `content/events.yaml` | The Events timeline and "Recent & upcoming" on the home page |
+| `content/events.yaml` | The Events timeline and "Featured events" on the home page |
 | `content/nto.yaml` | The Projects page (NTO, Sandpiper, MTM) |
-| `content/service.yaml` | The Service list on the Events page |
+| `content/service.yaml` | The Service list on the CV page |
 
 You can edit these on github.com (open the file, click the pencil icon, then **Commit changes**),
 or locally (see [Preview locally](#preview-locally)). If a file has a mistake, such as a missing
@@ -60,7 +60,7 @@ heading). Under "Past", entries sit under a heading for each year, and everythin
     photos:
       - {src: assets/events/2027-04-panel.jpg, alt: "Kirk speaking on the panel"}
   ```
-- **Feature it on the home page:** add `highlight: true`. "Recent & upcoming events" lists every
+- **Feature it on the home page:** add `highlight: true`. "Featured events" lists every
   highlighted event, newest first, or the four newest events if none are highlighted. Each shows
   a slideshow of the entry's photos (arrows, or swipe on a phone). `image: {src: …, alt: …}` adds a
   picture shown first, on the home page only. Events without a picture get a plain tile with the
