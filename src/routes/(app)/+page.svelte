@@ -6,8 +6,14 @@
     import Carousel from '#lib/components/Carousel.svelte';
     import { capitalize } from '#lib/format.ts';
     import { personJsonLd } from '#lib/seo.ts';
+    import { bioLinks, linkify } from '#lib/bio.ts';
 
     let { data } = $props();
+
+    const links = $derived(bioLinks(data.profile));
+    const split = $derived(data.profile.bio_shown === 0 ? data.profile.long_bio.length : (data.profile.bio_shown ?? 1));
+    const shown = $derived(data.profile.long_bio.slice(0, split));
+    const more = $derived(data.profile.long_bio.slice(split));
 </script>
 
 <Title text="" />
@@ -16,10 +22,22 @@
     {@html `<script type="application/ld+json">${personJsonLd(data.profile, data.nto)}</script>`}
 </svelte:head>
 
+{#snippet paragraph(text: string)}
+    <p>
+        {#each linkify(text, links) as part, i (i)}{#if part.url}<a href={part.url}>{part.text}</a
+                >{:else}{part.text}{/if}{/each}
+    </p>
+{/snippet}
+
 <div class="bio">
-    {#each data.profile.long_bio as paragraph, i (i)}
-        <p>{paragraph}</p>
-    {/each}
+    {#each shown as text, i (i)}{@render paragraph(text)}{/each}
+    {#if more.length > 0}
+        <!-- Native disclosure: works without JavaScript, and the text stays in the page for search engines. -->
+        <details class="more-bio">
+            <summary><span class="when-closed">Read more</span><span class="when-open">Show less</span></summary>
+            {#each more as text, i (i)}{@render paragraph(text)}{/each}
+        </details>
+    {/if}
 </div>
 
 <div class="interests">
@@ -70,8 +88,53 @@
 </Section>
 
 <style>
-    .bio p:first-child {
+    .bio > p:first-child {
         font-size: 1.08em;
+    }
+
+    .more-bio summary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
+        margin: -0.25em 0 1em 0;
+        color: var(--link-color);
+        font-size: var(--small-font-size);
+        font-weight: var(--bold-weight);
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .more-bio summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* A chevron that points down when closed and up when open. */
+    .more-bio summary::after {
+        content: '';
+        width: 0.45em;
+        height: 0.45em;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: translateY(-0.15em) rotate(45deg);
+        transition: transform 150ms ease-out;
+    }
+
+    .more-bio[open] summary::after {
+        transform: translateY(0.1em) rotate(-135deg);
+    }
+
+    .more-bio summary:hover {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+    }
+
+    .more-bio .when-open,
+    .more-bio[open] .when-closed {
+        display: none;
+    }
+
+    .more-bio[open] .when-open {
+        display: inline;
     }
 
     .interests {

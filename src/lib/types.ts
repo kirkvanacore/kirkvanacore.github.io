@@ -20,6 +20,10 @@ export interface Profile {
     areas_of_interest: string[];
     short_bio: string;
     long_bio: string[];
+    /** How many bio paragraphs show before "Read more" (default 1; 0 shows them all). */
+    bio_shown?: number;
+    /** Extra phrases to link in the bio: {"phrase": url}. Advisors are linked automatically. */
+    bio_links?: Record<string, string>;
     education: { degree: string; school: string; year: number | string; advisor?: Person }[];
     /** Appointments for the CV page, newest first. */
     positions?: { years: string; title: string; org: string; advisor?: Person }[];

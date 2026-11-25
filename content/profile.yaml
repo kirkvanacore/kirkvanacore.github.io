@@ -26,6 +26,10 @@ short_bio: >-
   evaluated, and governed.
 
 # The home page bio, first person (Kirk's text, Nov 2026). One "- >-" item per paragraph.
+# The first `bio_shown` paragraphs show; the rest sit behind "Read more" (0 shows all).
+# Advisors' names (below, under education and positions) link to their pages automatically;
+# to link other phrases, add them under bio_links, e.g.  "National Tutoring Observatory": https://...
+bio_shown: 1
 long_bio:
   - >-
     I am an Assistant Research Professor in Information Science at Cornell University and the

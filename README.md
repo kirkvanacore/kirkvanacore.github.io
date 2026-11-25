@@ -88,7 +88,9 @@ the URL.
 ## Edit the bio
 
 `long_bio` in `content/profile.yaml` is the bio on the home page. Each `- >-` item is one
-paragraph. Lines inside a paragraph can wrap wherever you like, as long as they stay indented.
+paragraph. The first `bio_shown` paragraphs show (default 1), and the rest sit behind a "Read
+more" link. Advisors' names in the bio link to the pages given for them under `education` and
+`positions`; to link other phrases, add them under `bio_links` (`"phrase": url`). Lines inside a paragraph can wrap wherever you like, as long as they stay indented.
 `short_bio` is used for search engines and link previews. Titles, areas of interest, education
 and profile links are in the same file.
 
