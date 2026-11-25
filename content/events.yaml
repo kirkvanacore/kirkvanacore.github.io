@@ -97,6 +97,10 @@
   time: "3:45–5:00 PM"
   event: Festival of Learning 2026
   location: COEX, Seoul, South Korea
+  photos:
+    - {src: assets/events/2026-06-fol-panel/2026-06-fol-panel-01.jpg, alt: "Kirk Vanacore presenting the National Tutoring Observatory on stage, with a slide of partners and collaborators"}
+    - {src: assets/events/2026-06-fol-panel/2026-06-fol-panel-07.jpg, alt: "Screen showing panelists Hiroaki Ogata, Kirk Vanacore, Tanja Käser and Roberto Martinez-Maldonado, with the panel seated below"}
+    - {src: assets/events/2026-06-fol-panel/2026-06-fol-panel-10.jpg, alt: "Kirk Vanacore speaking into a microphone during the panel"}
   links:
     panel: https://festival-of-learning-2026.info/panels/
 
@@ -113,8 +117,10 @@
   event: Festival of Learning 2026
   location: COEX 305, Seoul, South Korea
   photos:
-    - {src: assets/events/2026-06-fol-workshop-session.jpg, alt: "Workshop participants working together at laptops"}
-    - {src: assets/events/2026-06-fol-workshop-group.jpg, alt: "Workshop organizers and participants, group photo in Seoul"}
+    - {src: assets/events/2026-06-fol-workshop/2026-06-fol-workshop-05.jpg, alt: "Participants working together at laptops"}
+    - {src: assets/events/2026-06-fol-workshop/2026-06-fol-workshop-02.jpg, alt: "Presentation introducing the National Tutoring Observatory"}
+    - {src: assets/events/2026-06-fol-workshop/2026-06-fol-workshop-07.jpg, alt: "Full workshop room of attendees"}
+    - {src: assets/events/2026-06-fol-workshop/2026-06-fol-workshop-12.jpg, alt: "Workshop organizers and participants, group photo in Seoul"}
   links:
     workshop: https://sites.google.com/view/fol26-wksp-science-of-tutoring/home
     paper: https://doi.org/10.1007/978-3-032-29794-5_18
