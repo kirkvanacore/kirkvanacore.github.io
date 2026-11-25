@@ -17,11 +17,13 @@ areas_of_interest:
   - Educational Data Science
   - Causal Inference
 
+# Third person; used for search results and link previews (taken from the bio's opening).
 short_bio: >-
-  Kirk Vanacore is an Assistant Research Professor in the Bowers College of
-  Computing and Information Science at Cornell University. His research blends
-  statistics, machine learning, and artificial intelligence to uncover causal
-  learning mechanisms in environments that combine human and AI instruction.
+  Kirk Vanacore is an Assistant Research Professor in Information Science at
+  Cornell University and the Research Director of the National Tutoring
+  Observatory. A learning scientist, he uses computational and causal methods to
+  understand how people learn and to guide how AI in education is developed,
+  evaluated, and governed.
 
 # The home page bio, first person (Kirk's text, Nov 2026). One "- >-" item per paragraph.
 long_bio:
@@ -36,7 +38,7 @@ long_bio:
     gaps between students with greater and fewer educational resources.
   - >-
     My work combines experimental and quasi-experimental designs with machine learning. I have
-    used fully latent principal stratification to examine how students' tendency to game the
+    used fully latent principal stratification to examine how students’ tendency to game the
     system shapes the effects of instructional assistance. I have also studied how learners
     using a conversational AI mathematics tutor across sub-Saharan Africa respond to difficulty,
     and combined deep knowledge tracing with causal forests to estimate the effects of
